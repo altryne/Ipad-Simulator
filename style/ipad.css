@@ -1,0 +1,455 @@
+body {
+    background: url(../apps/ipad.jpg) no-repeat 50% top;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    cursor: default !important;
+    font-family:Arial;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+li {
+    display: block;
+    float: left;
+}
+
+#content,#externalContainer {
+    width: 884px;
+    height: 662px;
+    margin: 100px auto 0;
+    position:relative;
+
+}
+#content{
+    overflow:hidden;
+}
+#content.hide_spring *{
+    visibility: hidden;
+}
+.hide_spring #lockscreen,.hide_spring #lockscreen *{
+    visibility:visible;
+}
+#search{
+    display:block;
+    margin:0 auto;
+    margin-top:15px;
+    background:#fff url(../apps/ipad_sprite.png) no-repeat 5px -108px;
+    width:290px;
+    height:20px;
+    border:none;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    border-radius:15px;
+    outline:none;
+    padding-left:30px;
+    font-weight:bold;
+    font-size:16px;
+
+}
+#search_result_wrapper{
+    width:600px;
+    height:460px;
+    display:block;
+    background:#e4e5e7;
+    
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    /*padding:10px;*/
+    overflow:hidden;
+    position:absolute;
+    left:140px;
+    top:60px;
+    z-index:150;
+}
+#black{
+    width:885px;
+    height:100%;
+    background:#000;
+    position:absolute;
+    left:0;
+    top:0;
+    opacity:0;
+    z-index:100;
+}
+.corner{
+    width:20px;
+    height:20px;
+    background:#000;
+    position:absolute;
+    z-index:150;
+    background:url(../apps/ipad_sprite.png) no-repeat left top;
+    opacity:0;
+}
+
+#tl{left:140px;top:60px; }
+#tr{left:720px;top:60px;  background-position:left -57px;}
+#br{left:720px;top:500px; background-position:left -84px; }
+#bl{left:140px;top:500px; background-position:left -22px;}
+
+#whiteSep{
+    position:absolute;
+    left:210px;
+    top:60px;
+    width:1px;
+    height:460px;
+    background:#fff;
+    z-index:200;
+}
+#noResults{
+    font-size:40px;
+    line-height:500px;
+    text-align:center;
+    position:relative;
+    z-index:200;
+    color:#999;
+    text-shadow: #fff 1px 1px 0px;
+}
+#search_result{
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    border-radius:20px;
+    padding-bottom:150px;
+    overflow:hidden;
+    display:block;
+    width:100%;
+    height:100%;
+
+}
+
+#search_result li{
+    display:none;
+    width:100%;
+    line-height:60px;
+    font-weight:bold;
+    font-size:20px;
+    text-indent:10px;
+    margin:0 !important;
+    padding:0 !important;
+    border-bottom:1px solid #b6b8b7;
+    border-top:1px solid #feffff;
+    z-index:100;
+}
+#search_result li.show{
+    display:block !important;
+    background:#e4e5e7;
+}
+#search_result .show.odd{
+
+    background:#d0d1d5 !important;
+}
+
+#search_result li .app_logo{
+    width:50px;
+    height:50px;
+    float:left;
+    margin:10px;
+    
+    -moz-background-size:50px 50px;
+    -webkit-background-size:50px 50px;
+    background-size:50px 50px;
+    -moz-border-radius: 10px !important;
+    -webkit-border-radius: 10px !important;
+    border-radius: 10px !important;
+}
+
+#general_wrap {
+    height: 664px;
+    width: 884px;
+    overflow: hidden;
+    position:relative;
+    z-index:100;
+}
+
+#drag {
+    height: 580px;
+    width: 25000px;
+}
+
+.page {
+    height: 664px;
+    padding-top: 10px;
+    overflow: hidden;
+    width: 884px;
+    float: left;
+    position:relative;
+    z-index:100;
+}
+
+.page li.app{
+    margin: 0 50px !important;
+    padding: 15px 0;
+    line-height: 20px;
+
+}
+.ui-sortable-placeholder{
+    overflow:hidden;
+    background:green;
+    margin: 0 50px;
+}
+.ui-sortable-helper {
+
+    margin: 0 50px;
+    padding: 15px 0;
+    line-height: 20px;
+
+}
+
+.page li:nth-child(5) {
+    margin-right: 0;
+}
+
+
+#dock {
+    height: 111px;
+    width:884px;
+    overflow:hidden;
+    background:url(../apps/dock.png) no-repeat 0 bottom;
+    position:absolute;
+    bottom:0;
+    z-index:350;
+    padding-top:10px;
+}
+#dock .reflection{
+    opacity:0.3;
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+    -moz-box-shadow:none !important;
+    -webkit-box-shadow:none !important;
+    box-shadow:none !important;
+    margin-top:-20px;
+}
+#pages {
+    bottom: 120px;
+    font-size: 30px;
+    height: 8px;
+    width:100%;
+    line-height: 1px;
+    position: absolute;
+    text-align: center;
+    z-index: 150;
+}
+
+#pages li.first img{
+    position:relative;
+    top:-5px;
+}
+#pages li {
+    display: inline;
+    float: none;
+    color: #fff;
+    cursor: default;
+    opacity: 0.5;
+    height:35px;
+    width:19px;
+
+}
+
+#pages li.active {
+    opacity: 1 !important;
+}
+
+.apps li,.ui-sortable-helper {
+    margin: 0 45px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+    font-family: Arial;
+    text-shadow: #000 1px 1px 0px;
+}
+.apps .mousedown .app_logo {
+    opacity:0.68;
+}
+.apps li span{
+    position:relative;
+    z-index:15;
+}
+.delete{
+    display:none;
+}
+
+.editMode .delete{
+    display:block;
+    position:absolute;
+    left:-5px;
+    top:5px;
+    width:15px;
+    height:15px;
+    background:#000;
+    border:2px solid #fff;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    border-radius:15px;
+    font-size:16px;
+    font-family:arial;
+    line-height:13px;
+    text-indent:1px;
+    font-weight:bold;
+    cursor:pointer;
+    colro:#fff;
+    -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* FF3.5+ */
+    -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Saf3.0+, Chrome */
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3); /* Opera 10.5, IE 9.0 */
+}
+#dock .delete{
+    top:-5px !important;
+}
+.apps li,.ui-sortable-helper {
+    height:96px;
+}
+.apps li .app_logo,.ui-sortable-helper .app_logo {
+    display: block;
+    height: 74px;
+    width: 74px;
+    margin-bottom:5px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    -moz-box-shadow: 3px 25px 35px rgba(0, 0, 0, 0.6); /* FF3.5+ */
+    -webkit-box-shadow: 3px 25px 35px rgba(0, 0, 0, 0.6); /* Saf3.0+, Chrome */
+    box-shadow: 3px 25px 35px rgba(0, 0, 0, 0.6); /* Opera 10.5, IE 9.0 */
+}
+.ui-sortable-helper{
+    -moz-transform:scale(1.2);
+    -webkit-transform:scale(1.2);
+    -o-transform:scale(1.2);
+}
+.ui-sortable-helper .app_logo{
+    opacity:0.6;
+}
+.ui-sortable-helper .reflection{
+    display:none;
+}
+#lockscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../apps/lockscreen.jpg) no-repeat;
+}
+
+#lockscreen.hidden {
+    background-image: none;
+    background-color: #000;
+}
+
+#lockscreen.hidden * {
+    display: none;
+}
+.topbar{
+    background:url(../apps/topbar.png) no-repeat;
+    position:absolute;
+    left:0;top:0;
+    height:17px;width:100%;
+    text-align:center;
+    line-height:20px;
+    z-index:600;
+}
+.time,.percentage{
+    font-size:12px;
+    color:#fff;
+    font-weight:bold;
+    text-shadow: #000 2px 2px 6px;
+    position:relative;
+    top:-3px;
+}
+.percentage{
+    float:right;
+    right:28px;
+    top:-1px;
+}
+#lockscreentime{
+    font-size:65px;
+    font-weight:normal;
+    text-shadow: #000 2px 2px 15px;
+    padding-top:26px;
+    text-align:center;
+}
+#slide_here {
+    background: url(../apps/slide2.gif) no-repeat right 50%;
+    width: 218px;
+    height: 43px;
+    position: absolute;
+    bottom: 19px;
+    left: 37.7%;
+}
+
+#slider {
+    background: url(../apps/slide_btn.png) no-repeat;
+    width: 56px;
+    height: 42px;
+}
+
+#drop {
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0px;
+}
+#home{
+    height:53px;
+    left:-84px;
+    margin:0 auto;
+    position:absolute;
+    top:46%;
+    width:54px;
+    -moz-border-radius:50px;
+    -webkit-border-radius:50px;
+    border-radius:50px;
+    cursor:pointer;
+}
+#sleep{
+    position:relative;
+    width:10px;
+    height:50px;
+    right:-990px;
+    bottom:44px;
+    cursor:pointer;
+}
+.editMode .apps li{
+  -webkit-animation-name: jitter;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  position:relative;
+}
+
+@-webkit-keyframes jitter{
+    0%{
+        -webkit-transform : rotate(+3deg)
+    }
+    50%{
+        -webkit-transform : rotate(-3deg);
+    }
+    100%{
+        -webkit-transform : rotate(+3deg);
+    }
+}
+
+@-webkit-keyframes slidein{
+    0%{
+        -webkit-transform : rotate(+3deg)
+    }
+    100%{
+        -webkit-transform : rotate(+3deg);
+    }
+}
+
+#window{
+    width:0;
+    height:0;
+    position:absolute;
+    left:50%;
+    top:50%;
+    background:#000;
+    z-index:2000;
+    opacity:0;
+}

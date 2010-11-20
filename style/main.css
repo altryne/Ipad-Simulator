@@ -1,0 +1,185 @@
+body{
+	background:url(../img/background.png) repeat;
+	font-family:Arial,Helvetica,Sans-serif;
+	font-size:16px;
+}
+#header{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+#content{
+	background:#E0E0E0;
+	min-height:800px;
+	padding:15px 5px 15px 15px;
+}
+a {
+color:#C9483D;
+}
+a:hover {
+color:#E02312;
+}
+
+h1 {
+	
+	font-size:48px;
+	font-weight:bold;
+	margin-bottom:0 !important;
+	padding:2px 0 0 0;
+	text-transform:uppercase;
+}
+
+/*tabs css here*/
+#tabz{
+	margin-top:10px;
+}
+#tabz li, #tabz_cont{
+	background:#ececec;
+	border:3px solid #2e2e2e;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+#tabz li{
+	font-size:20px;
+	height:40px;
+	line-height:40px;
+	text-indent:20px;
+	cursor:pointer;
+	margin-bottom:10px;
+}
+#tabz li.active,#tabz li:hover{
+	background:#fff;
+	font-size:1.5em;
+	position:relative;
+	z-index:5;
+	padding-right:0px;
+	border-right:none;
+	-moz-border-radius:5px 0 0 5px;
+	-webkit-border-radius:5px 0 0 5px;
+}
+#tabz_cont{
+	min-height:450px;
+	background:#fff;
+	-moz-box-shadow: 5px 5px 18px #888;
+	-webkit-box-shadow: 5px 5px 18px #888;
+}
+#tabz_cont .cont.active{
+	display:block;
+	padding:10px;
+	
+}
+#tabz_cont .cont{
+	display:none;
+}
+
+/* MARCH */
+#march{
+	background:url(../img/marchbg.jpg) no-repeat 50% top;
+}
+#content_march{
+	min-height:800px;
+}
+#countdown{
+	height:80px;	
+	font-weight:bold;
+	color:#898787;
+	font-size:9px;
+	padding-top:300px;
+}
+#countdown .countdown_title{
+	padding-top:5px;
+	text-align:left;
+}
+#countdown span{
+	font-size:48px;
+}
+.cnt{
+	float:left;
+	width:90px;
+	text-align:center;
+	margin-right:2px;
+}
+.seconds{
+	margin-right:0;
+}
+#march_flash{
+	position:relative;
+	top:60px;
+	left:-1px;
+	height:600px;
+	z-index:100;
+}
+a.control{
+	display:block;
+	float:left;
+	width:16px;
+	height:16px;
+	position:relative;top:70px;
+	padding:5px;
+	background-image:url(../img/famfam.png);
+	background-repeat:no-repeat;
+}
+
+.control_pause { background-position: 0 0; width: 16px; height: 16px; } 
+.control_pause:hover { background-position: 0 -66px; width: 16px; height: 16px; } 
+.control_play { background-position: 0 -132px; width: 16px; height: 16px; } 
+.control_play:hover { background-position: 0 -198px; width: 16px; height: 16px; } 
+.control_start { background-position: 0 -264px; width: 16px; height: 16px; } 
+.control_start:hover { background-position: 0 -330px; width: 16px; height: 16px; } 
+.control_stop { background-position: 0 -396px; width: 16px; height: 16px; } 
+.control_stop:hover { background-position: 0 -462px; width: 16px; height: 16px; } 
+
+#countdown,#march_flash,#controls{
+	display:none;
+}
+#rose{
+	position:absolute;
+	left:-70px;
+	top:530px;
+	z-index:1000;
+	_display:none; /*suka ie*/
+}
+/* end march */
+
+/*canvas begin*/
+h1 {
+    margin-bottom:15px !important;
+}
+h1 a{
+    font-size:16px;
+}
+#can_space{
+    width:640px;
+    height:360px;
+    
+    
+}
+#can{
+    position:absolute;
+    z-index:150;
+}
+#can_space canvas{
+    float:left;
+}
+#video_container{
+    overflow:hidden;
+    width:0px;
+    height:0px;
+}
+#video_container.hide{
+
+    display:none;
+}
+
+.ui-draggable-dragging{
+    cursor:pointer;
+    /*z-index: 50;*/
+    opacity: 0.8;
+    -moz-box-shadow: 0px 0px 4px #000; /* FF3.5+ */
+    -webkit-box-shadow: 0px 0px 4px #000; /* Saf3.0+, Chrome */
+    box-shadow: 0px 0px 4px #000; /* Opera 10.5, IE 9.0 */
+}
+
+button{
+    font-size:16px;
+}
+/*canvas end*/
