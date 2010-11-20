@@ -24,6 +24,15 @@ $apps[2] = Array(
     'photos',
     'iMovie',
 );
+$apps[3] = Array(
+    'mail',
+    'stocks',
+    'maps',
+    'messages',
+    'notes',
+    'photos',
+    'iMovie',
+);
 ?>
 
 <!DOCTYPE html>
