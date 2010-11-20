@@ -18,20 +18,6 @@
         <link rel="stylesheet" href="style/main.css" type="text/css" media="screen"/>
     </head>
     <body>
- <script type="text/javascript">
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-7437527-1']);
-          _gaq.push(['_trackPageview']);
-
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-
-        </script>
-
-
     <div id="content" class="container_24">
         <div class="grid_4 ">
             <script type="text/javascript"><!--
@@ -47,9 +33,10 @@
             </script>
         </div>
         <div class="grid_18 push_1" >
-            <h1>I have yet to implement any apps in this ipad experiment. soon.</h1>
+            <h1>I have yet to implement this app in this ipad experiment. soon.</h1>
             <h3 style="margin-bottom:15px !important;">
-                In the meanwhie, you are welcome to checkout my blog : <a href="http://alexw.me/">alexw.me</a>
+                In the meanwhie, you are welcome to checkout my blog : <a href="http://alexw.me/">alexw.me</a> <br />
+                You can also fork this at https://github.com/altryne/Ipad-Simulator and hack on this and do cool stuff because open souce rulez
             </h3>
             <h4>
                 Things that work :
@@ -74,5 +61,15 @@
         </div>
 </div>
 
+    <script>
+   var _gaq = [['_setAccount', 'UA-7437527-1'], ['_trackPageview']];
+   (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+   })(document, 'script');
+  </script>
 </body>
 </html>
