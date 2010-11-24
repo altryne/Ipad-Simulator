@@ -8,7 +8,8 @@
   #map_canvas { height: 100%;width:100%; }
 </style>
     <!-- google and cloudmade maps api -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <!--    <script type="text/javascript" src="http://tile.cloudmade.com/wml/latest/web-maps-lite.js"></script>-->
 

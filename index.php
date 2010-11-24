@@ -43,10 +43,11 @@ $apps[3] = Array(
     <meta name="description" content="This is a jquery iPad simulator, this is only an experiment of what can be done with javascript in ast browsers">
     <meta name="keywords" content="Ipad, ipad simulator, apple ipad, alexw.me, altryne, alex wolkov, ipad javascript simulator">
     <link rel="stylesheet" href="style/ipad.css" type="text/css" media="screen"/>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-    <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
     <script type="text/javascript" src="js/jquery-ui-1.8.1.custom.min.js"></script>
     <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.ipad.js"></script>
     <script type="text/javascript" src="js/ipad.js"></script>
 </head>
 <body id="ipad">

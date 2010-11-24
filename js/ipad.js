@@ -49,7 +49,6 @@ $('#search_result li.show').live('click',function(){
 });
 
 
-
 $('#slider').live('mousedown mouseup', function(event) {
     if (event.type == 'mousedown') {
         $('#slide_here').css('background-position','1500px 1500px');
@@ -78,6 +77,7 @@ function addZero(num){
 $(document).ready(function(){
     _page = 1;
     _pages = $('ul.page').length;
+
 
     reflectDock();
 //            _page=0; unlockSpring(); slideToPage(0); //temporary - todo:remove this
@@ -298,11 +298,16 @@ function animateDock(mode){
     }
 }
 function closeApp(){
-$('#window').removeClass('out').stop().html('').animate({left:"50%",width:1,top:"50%",height: 1,opacity:0},'easeInQuint');
-animateDock('outin');
+    $('#window').removeClass('out').stop().html('').animate({left:"50%",width:1,top:"50%",height: 1,opacity:0},'easeInQuint');
+    animateDock('outin');
+    $('.topbar').removeClass('inapp');
 }
 function launchApp(app_id){
-animateDock('out');
-_appToLaunch = '?appid='+app_id || null;
-$('#window').addClass('out').stop().html('<iframe src="app.html'+_appToLaunch+'" scrolling="no" width="884" height="658"></iframe>').animate({left:"0%",width:884,top:"0%",height:662,opacity:1},'easeInQuint');
+    animateDock('out');
+    _appToLaunch = '?appid='+app_id || null;
+    $('#window').addClass('out')
+            .stop()
+            .html('<iframe src="app.html'+_appToLaunch+'" scrolling="no" width="884" height="641"></iframe>')
+            .animate({left:"0%",width:884,top:"0%",height:662,opacity:1},'easeInQuint');
+    $('.topbar').addClass('inapp');
 }

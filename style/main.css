@@ -183,3 +183,183 @@ button{
     font-size:16px;
 }
 /*canvas end*/
+
+
+/*
+safari app for ipad simulator
+*/
+#safari{
+    background:#000;
+    width:100%;
+}
+#safari iframe{
+    border:0;
+    -webkit-border-radius:0 0 10px 10px;
+    -moz-border-radius:0 0 10px 10px;
+    border-radius:0 0 10px 10px;
+}
+#navbar{
+    height:50px;
+    background:-webkit-gradient(linear,left bottom,left top,color-stop(0, rgb(191,195,203)),color-stop(1, rgb(245,245,247)));
+    background:-moz-linear-gradient(    center bottom,    rgb(191,195,203) 0%,    rgb(245,245,247) 100%);
+    -webkit-border-radius:10px 10px 0 0;
+    -moz-border-radius:10px 10px 0 0;
+    padding:0 1.5%;
+    border-bottom:1px solid #3f3f3f;
+    position:relative;
+    z-index:200;
+}
+#navbar.hidden{
+    display:none;
+}
+#title{
+    text-align:center;
+    font-size:12px;
+    font-weight:bold;
+    line-height:15px;
+    height:15px;
+    color:#656565;
+}
+.icon{
+    width:4%;
+    margin-right:1%;
+    float:left;
+    line-height:30px;
+    background:url(../img/safari_sprites.png) left 5px  no-repeat;
+    text-indent:-9999px;
+    cursor:pointer;
+}
+#back{
+    background-position:left -93px;
+    opacity:0.3;
+}
+#forward{
+    background-position:left -191px;
+    opacity:0.3;
+}
+#bookmarks{
+    background-position:left -387px;
+    opacity:0.3;
+}
+#tabs{
+    background-position:left -484px;
+    color:#fff;
+    font-size:11px;
+    text-indent:10px;
+    line-height:34px;
+    font-weight:bold;
+}
+#urlCont,#searchCont{
+    width:50%;
+    margin-top:4px;
+    float:left;
+    background:#fff;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.8);    
+    padding:2px 8px;
+    position:relative;
+    cursor:pointer;
+}
+#searchCont{
+    width:19%;
+    margin-left:2%;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+
+}
+#urlCont input,#searchCont input{
+    border:0;
+    float:left;
+    width:98%;
+}
+#refresh,#stop{
+    position:absolute;
+    top:-1px;right:0;
+    height:22px;
+    width:22px;
+    background:url(../img/safari_sprites.png) left -291px  no-repeat;
+    text-indent:-9999px;
+}
+#tabs_cont{
+    background:#000;
+    overflow:hidden;
+}
+
+.tab{
+    z-index:100;
+    /*display:none;*/
+    background:#fff;
+    float:left;
+    width:30%;
+    margin:0 2% 40px;
+    height:170px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    position:relative;
+    cursor:pointer;
+}
+.iframe_overlay{
+    position:absolute;
+    z-index:95;
+    left:0;top:0;
+    height:100%;width:100%;
+    background:#fff;
+    opacity:0;
+}
+.tab:nth-child(3n+1){
+    margin:0 5px 40px 20px;
+}
+.tab:nth-child(3n+2){
+    margin:0 20px 40px 5px;
+}
+.tab iframe{
+    -webkit-transform: scale(0.3, 0.29);
+    -moz-transform: scale(0.3, 0.29);
+    transform: scale(0.3, 0.29);
+    -moz-transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+    transform-origin:0 0;
+    position:relative;
+    z-index:90;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+}
+.tabtitle{
+    color:#fff;
+    width:100%;
+    position:absolute;
+    left:0;
+    text-align:center;
+    bottom:-15px;
+    font-weight:bold;
+    font-size:12px;
+}
+#browser_overlay{
+    position:absolute;
+    left:0;top:0;
+    padding-top:50px;
+    width:100%;
+    height:591px;
+    background-color:#fff;
+    z-index:150;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+}
+#browser_overlay.small{
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+}
+#browser_overlay.small iframe{
+    display:none;
+}

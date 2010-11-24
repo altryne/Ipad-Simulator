@@ -36,7 +36,8 @@
             <h1>I have yet to implement this app in this ipad experiment. soon.</h1>
             <h3 style="margin-bottom:15px !important;">
                 In the meanwhie, you are welcome to checkout my blog : <a href="http://alexw.me/">alexw.me</a> <br />
-                You can also fork this at https://github.com/altryne/Ipad-Simulator and hack on this and do cool stuff because open souce rulez
+                You can also fork this at <a href="https://github.com/altryne/Ipad-Simulator">https://github.com/altryne/Ipad-Simulator</a> <br/>
+                and hack on this and do cool stuff because open souce rulez
             </h3>
             <h4>
                 Things that work :

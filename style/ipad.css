@@ -352,6 +352,10 @@ li {
     line-height:20px;
     z-index:600;
 }
+.topbar.inapp{
+    z-index:3000;
+    background-color:#000;
+}
 .time,.percentage{
     font-size:12px;
     color:#fff;
@@ -452,4 +456,9 @@ li {
     background:#000;
     z-index:2000;
     opacity:0;
+}
+
+iframe{
+    border:0;
+    margin-top:17px;
 }
