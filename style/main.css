@@ -1,5 +1,4 @@
 body{
-	background:url(../img/background.png) repeat;
 	font-family:Arial,Helvetica,Sans-serif;
 	font-size:16px;
 }
@@ -362,4 +361,82 @@ safari app for ipad simulator
 }
 #browser_overlay.small iframe{
     display:none;
+}
+
+#photos #navbar{
+    height:20px;
+}
+#photos_cont{
+    width:884px;
+    height:621px;
+    background:#000;
+    position:relative;
+}
+.album{
+    width:884px;
+    height:621px;
+    background:#000;
+    position:absolute;
+    z-index:50;
+    margin-left:50px;
+    margin-right:30px;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+.album.loaded{
+    position:static;
+    width:200px;
+    height:150px;
+    margin-left:50px;
+    margin-right:30px;
+    margin-top:50px;
+    margin-bottom:50px;
+    float:left;
+    top:20px;
+    left:20px;
+}
+.album.hidden img{
+    display:none;
+}
+.album img{
+    width:98px;
+    height:57px;
+    float:left;
+    background:#000;
+    border:5px #fff solid;
+    margin-right:15px;
+    margin-bottom:15px;
+    z-index:50;
+}
+.album img.stacked{
+    margin:0;
+    width:150px;
+    height:88px;
+    -moz-transform-origin:50% 50%;
+    -webkit-transform-origin:50% 50%;
+    transform-origin:50% 50%;
+    z-index:100;
+
+}
+.album img:last-child{
+    -moz-box-shadow:2px 2px 2px #000;
+    cursor:pointer;
+}
+.album img:nth-child(7n){
+    margin-right:0;
+}
+.album img:nth-child(-n-3){
+    -moz-transform:rotate(-10deg);
+    -webit-transform:rotate(-10deg);
+    transform:rotate(-10deg);
+}
+
+#please_hold{
+    position:absolute;
+    width:884px;
+    height:621px;
+    background:#3e3e3e;
+    background:url(../img/ajax-loader.gif) 340px 410px no-repeat,url(../img/hold.jpg) 0 0 no-repeat;
+    background:url(../img/ajax-loader.gif) 340px 410px no-repeat,url(../img/hold.jpg) 0 0 no-repeat;
+    z-index:100;
 }
