@@ -171,7 +171,7 @@ if ( !$url ) {
         $file_cache_date = filemtime($filename);
         $time_difference = ($now - $file_cache_date) / 60 / 60; //in hours
 
-        if($time_difference < 5 && !isset($_REQUEST['cc']) && strpos('alexw.me',$url) === false ){
+        if($time_difference < 10 && !isset($_REQUEST['cc'])){
             die(file_get_contents($filename));
             die(file_get_html($filename));
         }

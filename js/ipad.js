@@ -303,11 +303,19 @@ function closeApp(){
     $('.topbar').removeClass('inapp');
 }
 function launchApp(app_id){
+    if(app_id == 'safari'){
+        flag = confirm("!! important !! in order to simulate a browser in browser, I'm parsing all websites you may try to access, please DO NOT post any personal info via this simulator! (your browser may warn you about this site being reported phishing attac, this is because I use techniques that may be used for harm, again DO NOT POST any PERSONAL info!");
+        if(!flag) return false;
+    }
+    if(app_id == 'photos') return false;
+
     animateDock('out');
     _appToLaunch = '?appid='+app_id || null;
     $('#window').addClass('out')
             .stop()
-            .html('<iframe src="app.html'+_appToLaunch+'" scrolling="no" width="884" height="641"></iframe>')
-            .animate({left:"0%",width:884,top:"0%",height:662,opacity:1},'easeInQuint');
+            .animate({left:"0%",width:884,top:"0%",height:662,opacity:1},'easeInQuint',function(){
+                $(this).html('<iframe src="app.html'+_appToLaunch+'" scrolling="no" width="884" height="641"></iframe>');
+            })
+
     $('.topbar').addClass('inapp');
 }

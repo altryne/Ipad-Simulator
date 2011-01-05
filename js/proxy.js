@@ -20,7 +20,6 @@ function load(){
 
 function liClickHandler(e)
    {
-       alert('cliiiick');
        parent.navigate(this.href);
        return false;
    }
