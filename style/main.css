@@ -274,7 +274,12 @@ safari app for ipad simulator
 #urlCont input,#searchCont input{
     border:0;
     float:left;
-    width:98%;
+}
+#searchCont input{
+	width:98%;
+}
+#urlCont input{
+	width:96%;
 }
 #refresh,#stop{
     position:absolute;
