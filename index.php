@@ -36,10 +36,10 @@ $apps[3] = Array(
 ?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html lang="en">
 <head>
 <title>iPad Simulator - alexw.me</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta charset="utf-8">
     <meta name="description" content="This is a jquery iPad simulator, this is only an experiment of what can be done with javascript in ast browsers">
     <meta name="keywords" content="Ipad, ipad simulator, apple ipad, alexw.me, altryne, alex wolkov, ipad javascript simulator">
     <link rel="stylesheet" href="style/ipad.css" type="text/css" media="screen"/>

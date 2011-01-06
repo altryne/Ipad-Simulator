@@ -8,12 +8,12 @@
     }
 ?>
 <!DOCTYPE html>
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <html lang="en">
     <head>
         <title>Ipad simulator</title>
-        <meta name="description" content="This is a jquery iPad simulator, this is only an experiment o what can be done with javascript in ast browsers">
+        <meta name="description" content="This is a jquery iPad simulator, this is only an experiment of what can be done with javascript in latest browsers">
         <meta name="keywords" content="Ipad, ipad simulator, apple ipad, alexw.me, altryne, alex wolkov, ipad javascript simulator">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta charset="utf-8">
         <link rel="stylesheet" href="style/grid.css" type="text/css" media="screen"/>
         <link rel="stylesheet" href="style/main.css" type="text/css" media="screen"/>
     </head>
@@ -32,15 +32,15 @@
             src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
             </script>
         </div>
-        <div class="grid_18 push_1" >
+        <div class="grid_18 push_1">
             <h1>I have yet to implement this app in this ipad experiment. soon.</h1>
             <h3 style="margin-bottom:15px !important;">
-                In the meanwhie, you are welcome to checkout my blog : <a href="http://alexw.me/">alexw.me</a> <br />
+                In the meanwhie, you are welcome to checkout my blog: <a href="http://alexw.me/">alexw.me</a> <br />
                 You can also fork this at <a href="https://github.com/altryne/Ipad-Simulator">https://github.com/altryne/Ipad-Simulator</a> <br/>
-                and hack on this and do cool stuff because open souce rulez
+                and hack on this and do cool stuff because open source rulez
             </h3>
             <h4>
-                Things that work :
+                Things that work:
             </h4>
             <ul style="list-style:circle !important; list-style-position:inside;font-size:16px;padding:15px 0 0 30px;line-height:20px;">
                 <li>Moving Screens left and right with "spring" effect</li>
