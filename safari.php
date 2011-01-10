@@ -96,7 +96,7 @@
             <div id="add" class="icon">+</div>
             <div id="urlCont">
                 <form id="urlgo">
-                    <input type="text" id="url" value="http://www.alexw.me"/>
+                    <input type="text" id="url" value="http://alexw.me/2011/01/ipad-simulator-in-html-and-js/"/>
                 </form>
                 <div id="refresh">R</div>
                 <div id="stop">S</div>

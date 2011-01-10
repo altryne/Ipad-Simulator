@@ -33,11 +33,13 @@
             </script>
         </div>
         <div class="grid_18 push_1" >
-            <h1>I have yet to implement this app in this ipad experiment. soon.</h1>
+            <h1 style="font-size:18px">This app wasn't yet implemented in this experiment.</h1>
             <h3 style="margin-bottom:15px !important;">
-                In the meanwhie, you are welcome to checkout my blog : <a href="http://alexw.me/">alexw.me</a> <br />
+                In the meanwhie, you are welcome to checkout my blog : <a href="http://alexw.me/">alexw.me</a> <br /><br />
                 You can also fork this at <a href="https://github.com/altryne/Ipad-Simulator">https://github.com/altryne/Ipad-Simulator</a> <br/>
-                and hack on this and do cool stuff because open souce rulez
+                and hack on this and do cool stuff because open source rulez
+                <br/><br/>
+                If your an iPad app developer, and would like to feature your app here, contact me ipad@alexw.me
             </h3>
             <h4>
                 Things that work :
