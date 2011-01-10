@@ -12,7 +12,7 @@ $apps[1] = Array(
     'messages',
     'notes',
     'photos',
-    'iMovie',
+    'timezones',
     'weather'
 );
 $apps[2] = Array(

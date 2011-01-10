@@ -10,7 +10,6 @@ parent.extractTitle();
 
 function load(){
 
-
     var all = document.getElementsByTagName("a");
     for (var i=0;i<all.length;i++) {
         all[i].onclick = liClickHandler;
@@ -23,4 +22,3 @@ function liClickHandler(e)
        parent.navigate(this.href);
        return false;
    }
-

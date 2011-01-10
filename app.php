@@ -3,6 +3,9 @@
     if($appid && file_exists($appid.'.php')){
         header('Location: '.$appid.'.html');
     }
+    elseif($appid && $appid == 'timezones'){
+        header('Location: http://everytimezone.com');
+    }
     else{
 
     }
