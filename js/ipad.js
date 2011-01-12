@@ -429,9 +429,13 @@ function launchApp(app_id){
                     $('#iframe_holder iframe').removeClass('onFront');
                     $('#iframe_holder').append('<iframe id="'+app_id+'_app" class="app_iframe" src="app.html'+_appToLaunch+'" scrolling="no" width="884" height="641"></iframe>');
                     $('#'+app_id+'_app').addClass('onFront');
-                    $('#'+app_id).clone().appendTo('#multitask_bar ul').find('.delete').html('&ndash;');
+                    $('#'+app_id).clone().prependTo('#multitask_bar ul').find('.delete').html('&ndash;');
+                    if($('#multitask_bar li').length > 4){
+                        $('#multitask_bar li').last().remove();
+                    }
                 }else{
                      $('#'+app_id+'_app').addClass('onFront').siblings().removeClass('onFront');
+                     $('#multitask_bar #'+app_id).prependTo('#multitask_bar ul');
                 }
             });
     active_app = app_id;
