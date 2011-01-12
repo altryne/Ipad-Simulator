@@ -42,7 +42,7 @@ $('#multitask_bar .delete').live('mousedown ', function(event) {
         })
 });
 
-$('.page li,#dock li').live('mousedown mouseup', function(event) {
+$('.page.apps li,#dock li').live('mousedown mouseup', function(event) {
     if (event.type == 'mousedown') {
         $(this).addClass('mousedown');
         if (!$('#drag').is('.ui-draggable-dragging') && !$('body').is('.editMode')) {
@@ -62,7 +62,9 @@ $('.page li,#dock li').live('mousedown mouseup', function(event) {
 });
 
 $('#search_result li.show').live('click',function(){
-    launchApp($(this).attr('id'));
+    can_run_apps = true;
+    var _id = $(this).find('.search_str').html();
+    launchApp(_id);
 });
 
 $('#multitask_bar li').live('mousedown mouseup', function(event) {
@@ -132,7 +134,7 @@ $(document).ready(function(){
 //            _page=1; unlockSpring(); slideToPage(1); //temporary - todo:remove this
 
 //            create elements in quick search
-    $('.apps li').each(function(){
+    $('.pages.apps li,#dock li').each(function(){
        if($(this).attr('id') != ''){
          _img = $('.app_logo',this).css('background-image').replace('"','\'');
         _elm = $('<li><div class="app_logo" style="background-image:'+_img+'"></div><span class="search_str">' +$(this).attr('id')+ '</span> </li>');
