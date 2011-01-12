@@ -1,9 +1,10 @@
 <?php
     $appid = $_GET['appid'];
-    if($appid && file_exists($appid.'.php')){
+    if($appid && file_exists($appid.'.php') && $appid != 'photos'){
         header('Location: '.$appid.'.html');
     }
     elseif($appid && $appid == 'timezones'){
+        
         header('Location: http://everytimezone.com');
     }
     else{
@@ -38,8 +39,8 @@
         <div class="grid_18 push_1" >
             <h1 style="font-size:18px">This app wasn't yet implemented in this experiment.</h1>
             <h3 style="margin-bottom:15px !important;">
-                In the meanwhie, you are welcome to checkout my blog : <a href="http://alexw.me/">alexw.me</a> <br /><br />
-                You can also fork this at <a href="https://github.com/altryne/Ipad-Simulator">https://github.com/altryne/Ipad-Simulator</a> <br/>
+                In the meanwhie, you are welcome to checkout my blog : <a href="http://alexw.me/" target="_blank">alexw.me</a> <br /><br />
+                You can also fork this at <a href="https://github.com/altryne/Ipad-Simulator" target="_blank">https://github.com/altryne/Ipad-Simulator</a> <br/>
                 and hack on this and do cool stuff because open source rulez
                 <br/><br/>
                 If your an iPad app developer, and would like to feature your app here, contact me ipad@alexw.me
@@ -51,7 +52,7 @@
                 <li>Moving Screens left and right with "spring" effect</li>
                 <li>Dock icons have css3 "reflection"  ;)</li>
                 <li>All icons have css3 rounded corners and shadow similar to Ipads </li>
-                <li>Search works almost identically to the ios. (using modified <a href="http://ejohn.org/blog/jquery-livesearch">jquery live-search</a>  )</li>
+                <li>Search works almost identically to the ios. (using modified <a href="http://ejohn.org/blog/jquery-livesearch" target="_blank">jquery live-search</a>  )</li>
                 <li>Lock screen effect with returning lock</li>
                 <li>Home button works (exits apps, goes to first page, return from sleep mode,exits edit mode)</li>
                 <li>Sleep button puts iPad in sleep mode</li>
@@ -62,6 +63,10 @@
                 <li> - Move apps to another page</li>
                 <li> - Move apps to dock</li>
                 <li> - Delete Apps</li>
+                <li><strong>Multitasking: </strong> launch any app, and it's in the background</li>
+                <li> - multitask bar opens on double homescreen click</li>
+                <li> - 3D (only safari and webkit nightly) switch between open and wanted mutitask app</li>
+                <li> - remove app from multitask by editing the multitask bar (hold and hold for 2 sec.)</li>
             </ul>
 
         </div>

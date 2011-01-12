@@ -55,9 +55,10 @@ $apps[3] = Array(
 </head>
 <body id="ipad">
 <div id="externalContainer">
+    <div id="content_overflow">
     <div id="content" class="hide_spring">
-        <div id="window">
-        </div>
+        <div id="window"></div>
+        <div id="iframe_holder"></div>
         <div id="black"></div>
         <div class="topbar">
             <span class="time">--:--</span>
@@ -139,6 +140,12 @@ $apps[3] = Array(
         </div>
 
 
+    </div>
+</div>
+    <div id="multitask_bar">
+        <ul class="apps">
+            
+        </ul>
     </div>
     <div id="home"></div>
     <div id="sleep"></div>

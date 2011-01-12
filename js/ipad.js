@@ -9,10 +9,12 @@
 var intervall = 0;
 var can_run_apps = false;
 var tick;
-
+var doubleclickthreshhold = 200;
+var isDblClick = false;
 var canScroll = true;
+var active_app = '';
 
-$('.delete').live('click', function(event) {
+$('.page .delete,#dock .delete').live('click', function(event) {
     event.stopPropagation();
     event.stopImmediatePropagation();
     if(confirm('Are you sure you want to delete this app from you iPad?')){
@@ -22,30 +24,69 @@ $('.delete').live('click', function(event) {
                 .css('position','absolute')
                 .animate({left:"50%",width:1,top:"50%",height: 1},'easeInQuint',function(){$(this).parent().remove()})
     }
-
+});
+$('#multitask_bar .delete').live('mousedown ', function(event) {
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+        $(this).parent().css({'width':74,'height':99}).children('.delete, span').hide();
+        $(this).siblings('.app_logo')
+                .stop()
+                .css('position','absolute')
+                .animate({left:"50%",width:1,top:"50%",height: 1},'easeInQuint',function(){
+                _id = $(this).parent().attr('id');
+                $('#'+_id+'_app').remove();
+                $(this).parent().remove();
+                if(!$('#multitask_bar li').length){
+                    closeMultitask(200);
+                }
+        })
 });
 
-$('.apps li').live('mousedown mouseup', function(event) {
+$('.page li,#dock li').live('mousedown mouseup', function(event) {
     if (event.type == 'mousedown') {
         $(this).addClass('mousedown');
-        if (!$('#drag').hasClass('ui-draggable-dragging') && !$('body').hasClass('editMode')) {
+        if (!$('#drag').is('.ui-draggable-dragging') && !$('body').is('.editMode')) {
             can_run_apps = true;
             intervall = setTimeout("edit_mode()", '2000');
         }
+        
     } else {
         $(this).removeClass('mousedown');
         clearTimeout(intervall);
         if(!can_run_apps)
             clearTimeout(intervall);
-        else if((!$('#drag').hasClass('ui-draggable-dragging') && !$('body').hasClass('editMode'))){
+        else if((!$('#drag').is('.ui-draggable-dragging') && !$('body').is('.editMode') && !$('body').is('.multitaskMode'))){
             launchApp($(this).attr('id'));
         }
-
     }
 });
 
 $('#search_result li.show').live('click',function(){
     launchApp($(this).attr('id'));
+});
+
+$('#multitask_bar li').live('mousedown mouseup', function(event) {
+    if (event.type == 'mousedown') {
+        $(this).addClass('mousedown');
+        if (!$('#multitask_bar').is('.editMode')) {
+            can_run_apps = true;
+            intervall = setTimeout("multitask_edit_mode()", '2000');
+        }
+
+    } else {
+        $(this).removeClass('mousedown');
+        clearTimeout(intervall);
+        if(!can_run_apps)
+            clearTimeout(intervall);
+        else if(!$('#multitask_bar').is('.editMode')){
+             switchApps($(this).attr('id'));
+            if(!$('#window').is('.out')){
+                can_run_apps = true;
+                closeMultitask(0);
+                launchApp($(this).attr('id'));
+            }
+        }
+    }
 });
 
 
@@ -57,8 +98,16 @@ $('#slider').live('mousedown mouseup', function(event) {
     }
 });
 
-$('#home').live('click',homeBtnClick);
+$('#home').live('click',function(e){
+    b = setTimeout('homeBtnClick()',doubleclickthreshhold);
+});
+$('#home').live('dblclick',homeBtnDClick);
 
+$('#content').live('click',function(e){
+    if($('body').is('.multitaskMode')){
+        closeMultitask();
+    }
+});
 $('#sleep').live('click',function(){
    $('#lockscreen').addClass('hidden').addClass('asleep').show();
    $('#content').addClass('hide_spring');
@@ -80,7 +129,7 @@ $(document).ready(function(){
 
 
     reflectDock();
-//            _page=0; unlockSpring(); slideToPage(0); //temporary - todo:remove this
+//            _page=1; unlockSpring(); slideToPage(1); //temporary - todo:remove this
 
 //            create elements in quick search
     $('.apps li').each(function(){
@@ -168,10 +217,13 @@ function unlockSpring() {
     animateDock('in');
 }
 function homeBtnClick(){
-    if($('.asleep')){
+    if(isDblClick) return;
+    if($('.asleep').length){
         $('.asleep').removeClass('asleep').removeClass('hidden');
     }
-    if($('body').hasClass('editMode')){
+    if($('body').hasClass('multitaskMode')){
+       closeMultitask();
+    }else if($('body').hasClass('editMode')){
         //destroy sortable
         $('body').removeClass('editMode');
         $('.apps').sortable('destroy');
@@ -182,6 +234,16 @@ function homeBtnClick(){
         $('#drag').css('left',0);
         slideToPage(1); //go back home
     }
+};
+function homeBtnDClick(){
+    isDblClick = true;
+    if($('.asleep').length){
+        isDblClick = false;    
+    }
+    openMultitaskBar();
+    //clear dblclick
+    t = setTimeout("isDblClick = false;",200);
+    return false;
 };
 function edit_mode(){
         can_run_apps = false;
@@ -212,6 +274,32 @@ function edit_mode(){
         });
 
     window.clearInterval(intervall);
+};
+function multitask_edit_mode(){
+    can_run_apps = false;
+    clearTimeout(intervall);
+    $('#multitask_bar').addClass('editMode');
+}
+function openMultitaskBar(){
+    can_run_apps = false;
+    if($('#window').is('.out')){ //hide current runnig app from multitask bar
+        $('#multitask_bar #'+active_app).hide().siblings().show();
+    }else{
+        $('#multitask_bar li').show();
+    }
+    $('#content').animate({'bottom':120},200);
+    $('.page,#dock').animate({'opacity':0.5},200);
+    $('.topbar, #pages').fadeOut(200);
+    $('body').addClass('multitaskMode');
+    
+};
+function closeMultitask(ms){
+    var speed = ms || 200
+    $('#content').removeClass('multitask').animate({'bottom':0},speed);
+    $('.page,#dock').animate({'opacity':1},speed);
+    $('.topbar, #pages').fadeIn(speed);
+    $('body').removeClass('multitaskMode');
+    $('#multitask_bar').removeClass('editMode');
 
 };
 //css "reflection" hehe
@@ -297,25 +385,53 @@ function animateDock(mode){
             break;
     }
 }
+function switchApps(app_id){
+    if(app_id == active_app) return false;
+    closeMultitask(0);
+    $('#'+active_app+'_app').addClass('flip_top');
+    $('#'+app_id+'_app').addClass('flip_bottom');
+    var div = $('#'+active_app+'_app')[0];
+    $(div).bind('webkitAnimationEnd', function(){
+        $('#'+app_id+'_app').removeClass('flip_bottom').addClass('onFront').siblings().removeClass('flip_top onFront');
+        $('#iframe_holder iframe').unbind('webkitAnimationEnd');
+    }, false);
+    if(!$.browser.webkit){
+        $('#'+app_id+'_app').removeClass('flip_bottom').addClass('onFront').siblings().removeClass('flip_top onFront');
+        $('#iframe_holder iframe').unbind('webkitAnimationEnd');
+    }
+    active_app = app_id;
+}
+
 function closeApp(){
-    $('#window').removeClass('out').stop().html('').animate({left:"50%",width:1,top:"50%",height: 1,opacity:0},'easeInQuint');
+    $('#iframe_holder').css({'opacity':0,'display':'none'});
+    $('#window').removeClass('out').stop().html('').animate({left:"50%",width:1,top:"50%",height: 1,opacity:0},'easeInQuint',function(){
+
+    });
     animateDock('outin');
     $('.topbar').removeClass('inapp');
 }
 function launchApp(app_id){
+    if(!can_run_apps) return false;
     if(app_id == 'safari'){
         flag = confirm("!! important !! in order to simulate a browser in browser, I'm parsing all websites you may try to access, please DO NOT post any personal info via this simulator! (your browser may warn you about this site being reported phishing attac, this is because I use techniques that may be used for harm, again DO NOT POST any PERSONAL info!");
         if(!flag) return false;
     }
-    if(app_id == 'photos') app_id = 'photos_not_ready';
-
     animateDock('out');
     _appToLaunch = '?appid='+app_id || null;
     $('#window').addClass('out')
             .stop()
-            .animate({left:"0%",width:884,top:"0%",height:662,opacity:1},'easeInQuint',function(){
-                $(this).html('<iframe src="app.html'+_appToLaunch+'" scrolling="no" width="884" height="641"></iframe>');
-            })
-
+            .animate({left:"0%",width:885,top:"0%",height:662,opacity:1},'easeInQuint',function(){
+                $('#iframe_holder').css({'opacity':1,'display':'block'});
+                //cehck if multitasked
+                if(!$('#'+app_id+'_app').length){
+                    $('#iframe_holder iframe').removeClass('onFront');
+                    $('#iframe_holder').append('<iframe id="'+app_id+'_app" class="app_iframe" src="app.html'+_appToLaunch+'" scrolling="no" width="884" height="641"></iframe>');
+                    $('#'+app_id+'_app').addClass('onFront');
+                    $('#'+app_id).clone().appendTo('#multitask_bar ul').find('.delete').html('&ndash;');
+                }else{
+                     $('#'+app_id+'_app').addClass('onFront').siblings().removeClass('onFront');
+                }
+            });
+    active_app = app_id;
     $('.topbar').addClass('inapp');
 }
