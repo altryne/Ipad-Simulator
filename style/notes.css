@@ -1,0 +1,132 @@
+
+#notes_container{
+    height: 618px;
+    width: 860px;
+    background:#252527;
+    overflow:hidden;
+    position:relative;
+    padding:12px;
+}
+#left_side{
+    width:272px;
+    height: 617px;
+    background:#fff;
+    position:absolute;
+    left:12px; top:12px;
+}
+#right_side{
+    width: 575px;
+    height: 617px;  
+    background:#ede8a4;
+    position:absolute;
+    right: 12px; top:12px;
+}
+#search{
+    padding:12px;
+}
+#search #counter{
+    color:#1d1d1d;
+    font-size:18px;
+    text-align:center;
+    line-height:25px;
+    font-weight:bold;
+    height:30px;
+}
+#search_cont{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 5px 10px;
+    width: 220px;
+    -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8) inset,1px 0 1px rgba(0, 0, 0, 0.8) inset;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 1px 1px 1px inset,rgba(0, 0, 0, 0.8) 1px 0 1px inset;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8) inset;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border:3px solid #fff;
+    cursor: pointer;
+    /*margin-top: 4px;*/
+    padding: 2px 8px;
+    position: relative;
+}
+#search_cont input{
+    -webkit-appearance: none;
+    border:0;
+    background:transparent;
+    width:100%;
+    cursor: pointer;
+}
+#notes_list_cont{
+    border:1px solid #c3c3c3;
+    height: 510px;
+    margin:0 13px;
+}
+#notes_list_cont ul{
+    min-height: 510px;
+}
+#notes_list li{
+    border-bottom:1px solid #c3c3c3;
+    height:36px;
+    min-height:36px;
+    width:100%;display:block; list-style:none;
+}
+
+
+#header{
+    height: 18px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    line-height:25px;
+    color:#fff;
+    width:100%;
+}
+#add_btn{
+    position:absolute;
+    right:0;top:5px;
+}
+#note_wrap{
+    padding:20px;
+    padding-left:50px;
+    position:relative;
+}
+#relative_date{
+    position:absolute;
+    left:50px;
+    top:2px;
+    font-weight:bold;
+    color:#a1472f;
+}
+#date_time{
+    position:absolute;
+    right:2px;
+    top:2px;
+    color:#a1472f;
+}
+#note_wrap{
+    overflow:hidden;
+    height:500px !important;
+}
+#note_wrap textarea{
+    -webkit-appearance: none;
+    resize:none;
+    background:transparent;
+    border:0;
+    width:520px;
+    height:460px !important;
+    padding-bottom:40px;
+}
+#navigation{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+}
+
+/*nav buttons*/
+#prev{}
+#send{}
+#delete{}
+#next{}
+ 
