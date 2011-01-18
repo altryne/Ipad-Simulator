@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style/notes.css" type="text/css" media="screen"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
-    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/notes.js"></script>
 </head>
 <body>
@@ -33,9 +33,8 @@
         </div>
         <div id="right_side">
             <div id="header">
-                <span id="main_title">BLA BLA BLA</span>
+                <span id="main_title"></span>
                 <div id="add_btn">+</div>
-                <div id="remove_btn">-</div>
             </div>
             <div id="note_wrap">
                 <time id="relative_date" class="timeago">Today</time>
@@ -47,7 +46,7 @@
             <div id="navigation">
                 <div id="prev"><-</div>
                 <div id="send">mail</div>
-                <div id="delete">del</div>
+                <div id="remove_btn">del</div>
                 <div id="next">-></div>
             </div>
         </div>

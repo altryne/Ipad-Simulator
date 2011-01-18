@@ -3,7 +3,7 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     cursor: default !important;
-    font-family:Arial;
+    font-family:Helvetica,Arial,Sans-serif;
 }
 
 ul {

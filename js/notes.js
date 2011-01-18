@@ -6,7 +6,7 @@
  */
 var fns  = {} ,
     notes = {},
-    note_tpl = '<li><span class="name"></span><time class="timeago"></time></li>',
+    note_tpl = '<li><span class="name"></span><time class="timeago"></time><span class="search_str"></span></li>',
     default_notes = {
     active_note : 0,
     notes_arr :[
@@ -48,7 +48,30 @@ $('#add_btn').live('click',function(){
     fns.addNewNote();
 });
 $('#remove_btn').live('click',function(){
-    fns.removeNote();
+    var b = confirm ('Delete this note?');
+    if(b) fns.removeNote();
+});
+$('#text').live('focusin focusout keyup keydown',function(e){
+    switch(e.type){
+        case 'focusin':
+                
+        break;
+        case 'keyup':
+        case 'keydown':
+                if(this.value != ''){
+                    $('#notes_list').addClass('filtered');
+                    $('#number').html($('#notes_list li.show').length);
+                }else{
+                    $('#notes_list').removeClass('filtered');
+                    $('#number').html($('#notes_list li').length);
+                }
+
+        break;
+        case 'focusout':
+        default:
+                $('#notes_list').removeClass('filtered');
+        break;
+    }
 });
 
 $('document').ready(function(){
@@ -56,17 +79,18 @@ $('document').ready(function(){
     notes_from_ls = fns.getObject('notes');
     notes = (notes_from_ls && notes_from_ls.notes_arr.length > 0) ? notes_from_ls : default_notes;
     $.each(notes.notes_arr,function(i,elm){
-
         _temp = $(note_tpl).data('id',i);
         //templating
         $('.name',_temp).html(elm.title);
         $('time',_temp).html($.timeago(new Date(+elm.date)));
+        $('.search_str',_temp).html(elm.text);
         if(i == notes.active_note) {
             fns.textAreaPopulate(i);
             $(_temp).addClass('active');
         };
         _temp.appendTo('#notes_list');
     });
+    $('#text').liveUpdate($('#notes_list'));
     $('#number').html(notes.notes_arr.length);
     note_list = new iScroll('notes_list', {
 		momentum:true,
@@ -87,6 +111,7 @@ fns.addNewNote = function(){
     obj.data('id',0).css('height',0).prependTo('#notes_list').animate({'height':36},500,function(){
         fns.refreshIDs();
         fns.textAreaPopulate(0);
+        $('#number').html(notes.notes_arr.length);
     });
 };
 fns.removeNote = function(id){
@@ -98,10 +123,9 @@ fns.removeNote = function(id){
         default_notes.active_note = 0;
         fns.refreshIDs();
         fns.textAreaPopulate();
+        $('#number').html(notes.notes_arr.length);
     });
     //remove value from array - http://snipplr.com/view/14381/remove-item-from-array-with-jquery/
-
-    
 };
 fns.updateLocalStorage = function(){
     fns.setObject('notes',notes);
@@ -135,143 +159,3 @@ Array.prototype.remove = function(from, to) {
   this.length = from < 0 ? this.length + from : from;
   return this.push.apply(this, rest);
 };
-
-
-/*
- * timeago: a jQuery plugin, version: 0.9.2 (2010-09-14)
- * @requires jQuery v1.2.3 or later
- *
- * Timeago is a jQuery plugin that makes it easy to support automatically
- * updating fuzzy timestamps (e.g. "4 minutes ago" or "about 1 day ago").
- *
- * For usage and examples, visit:
- * http://timeago.yarp.com/
- *
- * Licensed under the MIT:
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright (c) 2008-2010, Ryan McGeary (ryanonjavascript -[at]- mcgeary [*dot*] org)
- */
-(function($) {
-  $.timeago = function(timestamp) {
-    if (timestamp instanceof Date) return inWords(timestamp);
-    else if (typeof timestamp == "string") return inWords($.timeago.parse(timestamp));
-    else return inWords($.timeago.datetime(timestamp));
-  };
-  var $t = $.timeago;
-
-  $.extend($.timeago, {
-    settings: {
-      refreshMillis: 60000,
-      allowFuture: false,
-      strings: {
-        prefixAgo: null,
-        prefixFromNow: null,
-        suffixAgo: "ago",
-        suffixFromNow: "from now",
-        seconds: "a minute",
-        minute: "a minute",
-        minutes: "%d minutes",
-        hour: "hour",
-        hours: "%d hours",
-        day: "a day",
-        days: "%d days",
-        month: "a month",
-        months: "%d months",
-        year: "a year",
-        years: "%d years",
-        numbers: []
-      }
-    },
-    inWords: function(distanceMillis) {
-      var $l = this.settings.strings;
-      var prefix = $l.prefixAgo;
-      var suffix = $l.suffixAgo;
-      if (this.settings.allowFuture) {
-        if (distanceMillis < 0) {
-          prefix = $l.prefixFromNow;
-          suffix = $l.suffixFromNow;
-        }
-        distanceMillis = Math.abs(distanceMillis);
-      }
-
-      var seconds = distanceMillis / 1000;
-      var minutes = seconds / 60;
-      var hours = minutes / 60;
-      var days = hours / 24;
-      var years = days / 365;
-
-      function substitute(stringOrFunction, number) {
-        var string = $.isFunction(stringOrFunction) ? stringOrFunction(number, distanceMillis) : stringOrFunction;
-        var value = ($l.numbers && $l.numbers[number]) || number;
-        return string.replace(/%d/i, value);
-      }
-
-      var words = seconds < 45 && substitute($l.seconds, Math.round(seconds)) ||
-        seconds < 90 && substitute($l.minute, 1) ||
-        minutes < 45 && substitute($l.minutes, Math.round(minutes)) ||
-        minutes < 90 && substitute($l.hour, 1) ||
-        hours < 24 && substitute($l.hours, Math.round(hours)) ||
-        hours < 48 && substitute($l.day, 1) ||
-        days < 30 && substitute($l.days, Math.floor(days)) ||
-        days < 60 && substitute($l.month, 1) ||
-        days < 365 && substitute($l.months, Math.floor(days / 30)) ||
-        years < 2 && substitute($l.year, 1) ||
-        substitute($l.years, Math.floor(years));
-
-      return $.trim([prefix, words, suffix].join(" "));
-    },
-    parse: function(iso8601) {
-      var s = $.trim(iso8601);
-      s = s.replace(/\.\d\d\d+/,""); // remove milliseconds
-      s = s.replace(/-/,"/").replace(/-/,"/");
-      s = s.replace(/T/," ").replace(/Z/," UTC");
-      s = s.replace(/([\+-]\d\d)\:?(\d\d)/," $1$2"); // -04:00 -> -0400
-      return new Date(s);
-    },
-    datetime: function(elem) {
-      // jQuery's `is()` doesn't play well with HTML5 in IE
-      var isTime = $(elem).get(0).tagName.toLowerCase() == "time"; // $(elem).is("time");
-      var iso8601 = isTime ? $(elem).attr("datetime") : $(elem).attr("title");
-      return $t.parse(iso8601);
-    }
-  });
-
-  $.fn.timeago = function() {
-    var self = this;
-    self.each(refresh);
-
-    var $s = $t.settings;
-    if ($s.refreshMillis > 0) {
-      setInterval(function() { self.each(refresh); }, $s.refreshMillis);
-    }
-    return self;
-  };
-
-  function refresh() {
-    var data = prepareData(this);
-    if (!isNaN(data.datetime)) {
-      $(this).text(inWords(data.datetime));
-    }
-    return this;
-  }
-
-  function prepareData(element) {
-    element = $(element);
-    if (!element.data("timeago")) {
-      element.data("timeago", { datetime: $t.datetime(element) });
-      var text = $.trim(element.text());
-      if (text.length > 0) element.attr("title", text);
-    }
-    return element.data("timeago");
-  }
-
-  function inWords(date) {
-    return $t.inWords(distance(date));
-  }
-
-  function distance(date) {
-    return (new Date().getTime() - date.getTime());
-  }
-
-})(jQuery);
