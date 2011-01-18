@@ -6,6 +6,7 @@
  */
 var fns  = {} ,
     notes = {},
+    t,
     note_tpl = '<li><span class="name"></span><time class="timeago"></time><span class="search_str"></span></li>',
     default_notes = {
     active_note : 0,
@@ -35,7 +36,9 @@ $('#note_area').live('change keyup keydown focusout',function(evt){
     //update only if textarea has value, else remove
 
     if(this.value != ''){
-        fns.updateLocalStorage();
+        //setTimeout to only save after user is done typing
+        clearTimeout(t);
+        t = setTimeout(fns.updateLocalStorage,500);
     }else if(this.value == '' && evt.type != 'focusout'){
         $('.active .name,#main_title').html('New note').addClass('default');
     }
