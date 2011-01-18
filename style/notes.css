@@ -42,6 +42,7 @@
     -webkit-box-shadow: rgba(0, 0, 0, 0.8) 1px 1px 1px inset,rgba(0, 0, 0, 0.8) 1px 0 1px inset;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8) inset;
     background: none repeat scroll 0 0 #FFFFFF;
+    -webkit-background-clip: padding-box;
     border:3px solid #fff;
     cursor: pointer;
     /*margin-top: 4px;*/
