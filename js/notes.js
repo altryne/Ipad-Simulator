@@ -15,7 +15,7 @@ var fns  = {} ,
             'title':'About this app',
             'date':"1295308437988",
             'text': "This is a simulation of the Notes app. \n" +
-                    "This demo uses localstorage to store your notes, so the nex time you open, they will be here ;)\n" +
+                    "This demo uses localstorage to store your notes, so the next time you open it, they will be here ;)\n" +
                     "If you want to store your notes, click \"allow\" when your browser prompts you."
         }
         ,{
