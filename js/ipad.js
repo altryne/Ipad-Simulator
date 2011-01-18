@@ -131,7 +131,7 @@ $(document).ready(function(){
 
 
     reflectDock();
-            _page=1; unlockSpring(); slideToPage(1); can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
+//            _page=1; unlockSpring(); slideToPage(1); can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
 
 //            create elements in quick search
     $('.pages.apps li,#dock li').each(function(){
