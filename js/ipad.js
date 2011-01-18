@@ -414,7 +414,7 @@ function closeApp(){
 }
 function launchApp(app_id){
     if(!can_run_apps) return false;
-    if(app_id == 'safari'){
+    if(app_id == 'Safari'){
         flag = confirm("!! important !! in order to simulate a browser in browser, I'm parsing all websites you may try to access, please DO NOT post any personal info via this simulator! (your browser may warn you about this site being reported phishing attac, this is because I use techniques that may be used for harm, again DO NOT POST any PERSONAL info!");
         if(!flag) return false;
     }
