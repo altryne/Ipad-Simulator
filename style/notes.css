@@ -66,8 +66,31 @@
 #notes_list li{
     border-bottom:1px solid #c3c3c3;
     height:36px;
-    min-height:36px;
     width:100%;display:block; list-style:none;
+    position:relative;
+}
+span.name{
+    color:#000;
+    font-weight:bold;
+    font-size:14px;
+    line-height: 36px;
+    position:relative;
+    left:10px;
+}
+#notes_list li time{
+    color:#656565;
+    font-size:12px;
+    line-height: 36px;
+    display:block;
+    position:absolute;
+    right:10px;
+    top:0;
+}
+span.name:after{
+    content:"...";
+}
+#notes_list li.active{
+    border-color:#a1472f;
 }
 
 
@@ -83,6 +106,12 @@
 #add_btn{
     position:absolute;
     right:0;top:5px;
+    cursor:pointer;
+}
+#remove_btn{
+    position:absolute;
+    right:35px;top:5px;
+    cursor:pointer;
 }
 #note_wrap{
     padding:20px;

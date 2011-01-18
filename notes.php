@@ -26,26 +26,7 @@
             </div>
             <div id="notes_list_cont">
                 <ul id="notes_list">
-                    <li class="active">
-                        <span class="name">SFjkasf...</span>
-                        <span class="date">10:37 pm</span>
-                    </li>
-                    <li>
-                        <span class="name">Public user Interface...</span>
-                        <span class="date">Dec 8, 2010</span>
-                    </li>
-                    <li>
-                        <span class="name">Public user Interface...</span>
-                        <span class="date">Dec 8, 2010</span>
-                    </li>
-                    <li>
-                        <span class="name">Public user Interface...</span>
-                        <span class="date">Dec 8, 2010</span>
-                    </li>
-                    <li>
-                        <span class="name">Public user Interface...</span>
-                        <span class="date">Dec 8, 2010</span>
-                    </li>
+
                 </ul>
             </div>
             <div id="pocket"></div>
@@ -54,10 +35,11 @@
             <div id="header">
                 <span id="main_title">BLA BLA BLA</span>
                 <div id="add_btn">+</div>
+                <div id="remove_btn">-</div>
             </div>
             <div id="note_wrap">
-                <div id="relative_date">Today</div>
-                <div id="date_time">Sep 13, 2010 11:42 AM</div>
+                <time id="relative_date" class="timeago">Today</time>
+                <time id="date_time">Sep 13, 2010 11:42 AM</time>
                 <div id="note">
                     <textarea id="note_area"></textarea>
                 </div>

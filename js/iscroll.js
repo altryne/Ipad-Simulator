@@ -254,12 +254,14 @@ iScroll.prototype = {
 
 		// Check if the scroller is really where it should be
 		if (that.options.momentum || that.options.snap) {
-			matrix = new WebKitCSSMatrix(window.getComputedStyle(that.element).webkitTransform);
+			try{
+            matrix = new WebKitCSSMatrix(window.getComputedStyle(that.element).webkitTransform);
 			if (matrix.e != that.x || matrix.f != that.y) {
 				document.removeEventListener('webkitTransitionEnd', that, false);
 				that.setPosition(matrix.e, matrix.f);
 				that.moved = true;
 			}
+            }catch(e){}
 		}
 
 		that.touchStartX = isTouch ? e.changedTouches[0].pageX : e.pageX;

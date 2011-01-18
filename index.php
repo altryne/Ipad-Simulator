@@ -2,35 +2,35 @@
 //0 page is the dock
 $apps[0] = Array(
     'iPod',
-    'settings',
-    'clock',
-    'safari',
-    'mail'
+    'Settings',
+    'Clock',
+    'Safari',
+    'Mail'
 );
 $apps[1] = Array(
-    'maps',
-    'messages',
-    'notes',
-    'photos',
-    'timezones',
-    'weather'
+    'Maps',
+    'Messages',
+    'Notes',
+    'Photos',
+    'Timezones',
+    'Weather'
 );
 $apps[2] = Array(
-    'mail',
-    'stocks',
-    'maps',
-    'messages',
-    'notes',
-    'photos',
+    'Mail',
+    'Stocks',
+    'Maps',
+    'Messages',
+    'Notes',
+    'Photos',
     'iMovie',
 );
 $apps[3] = Array(
-    'mail',
-    'stocks',
-    'maps',
-    'messages',
-    'notes',
-    'photos',
+    'Mail',
+    'Stocks',
+    'Maps',
+    'Messages',
+    'Notes',
+    'Photos',
     'iMovie',
 );
 ?>

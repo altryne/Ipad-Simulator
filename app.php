@@ -1,5 +1,5 @@
 <?php
-    $appid = $_GET['appid'];
+    $appid = strtolower($_GET['appid']);
     if($appid && file_exists($appid.'.php') && $appid != 'photos'){
         header('Location: '.$appid.'.html');
     }
