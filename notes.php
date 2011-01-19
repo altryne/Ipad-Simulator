@@ -15,6 +15,7 @@
 </head>
 <body>
     <div id="notes_container">
+        <canvas id="can" style="font-family:'TeXGyreHerosCnBold';"></canvas>
         <div id="left_side">
             <div id="search">
                 <div id="counter">

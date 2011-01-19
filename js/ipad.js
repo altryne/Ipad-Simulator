@@ -131,7 +131,7 @@ $(document).ready(function(){
 
 
     reflectDock();
-//            _page=1; unlockSpring(); slideToPage(1); can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
+            _page=1; unlockSpring(); slideToPage(1);//temporary - todo:remove this
 
 //            create elements in quick search
     $('.pages.apps li,#dock li').each(function(){
@@ -361,8 +361,12 @@ function animateDock(mode){
         {
             case 'in':
                 $(this)
-                .css({'left':(_newLeft),'top':(_newTop),'position':'relative'})
-                .animate({'left':0,'top':0},500,'easeOutQuad');
+                .css({'transform':'translate3d('+_newLeft+'px,'+_newTop+'px,0px)'})
+                .animate({'transform':'translate3d(0px,0px,0px)'},500)
+//                .css({'transform':'translate3d('+0+'px,'+0+'px,0px)'})
+//                .css({'transform':'rotate('+_newLeft+'deg)'});
+//                .css({'left':(_newLeft),'top':(_newTop),'position':'relative'})
+//                .animate({'left':0,'top':0},500,'easeOutQuad');
             break;
             case 'outin':
                 $(this)

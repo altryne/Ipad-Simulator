@@ -103,6 +103,24 @@ $('document').ready(function(){
 		hScrollbar:true
 	 });
 
+    /* canvas stuff */
+    can = $('#can')[0].getContext("2d");
+
+    
+    var img = new Image();
+     img.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAATCAIAAADTd4AJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMFJREFUeNosUEGOAzEIsxn+/519VaX2sofVDNR2lkhRAsY28Pf9s7skdC18qqpnHU44fIPonSV4MnqgOM/2zAJ7XaIoKNbfrqIijDtOTrFa5cAdRYtJOV1Ya6bbfYsGDwCH5zgptY9xiD9BWCVn+piKYUL8oS9WBMdWZDwifUCa8mDtU9aczR4OQWY0r5HKuPA/DzogD6LyVdzU+plBkLGsJ60WDyJGPPOQ9999Zy32/GAsrk2+Xp9sutLslYvoK8AAZmqUh6Ibh48AAAAASUVORK5CYII=';
+     img.onload = function(){
+       // create pattern
+       var ptrn = can.createPattern(img,'repeat');
+       can.fillStyle = ptrn;
+       can.fillRect(0,0,1500,1500);
+
+       can.font = "18px 'TeXGyreHerosCnBold'";
+       can.fillStyle = '#000';
+
+     }
+
+
 });
 
 //helper functions
