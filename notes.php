@@ -46,7 +46,7 @@
             <div id="navigation">
                 <div id="prev"><-</div>
                 <div id="send">mail</div>
-                <div id="remove_btn">del</div>
+                <div id="remove_btn" class="enabled">del</div>
                 <div id="next">-></div>
             </div>
         </div>

@@ -34,7 +34,6 @@ $('#note_area').live('change keyup keydown focusout',function(evt){
     notes.notes_arr[notes.active_note].title = this.value.substring(0,17);
     $('.active .name,#main_title').removeClass('default').html(notes.notes_arr[notes.active_note].title);
     //update only if textarea has value, else remove
-
     if(this.value != ''){
         //setTimeout to only save after user is done typing
         clearTimeout(t);
@@ -50,15 +49,18 @@ $('#note_area').live('change keyup keydown focusout',function(evt){
 $('#add_btn').live('click',function(){
     fns.addNewNote();
 });
-$('#remove_btn').live('click',function(){
+$('#remove_btn.enabled').live('click',function(){
     var b = confirm ('Delete this note?');
     if(b) fns.removeNote();
 });
+$('#prev.enabled').live('click',function(){
+    fns.textAreaPopulate(notes.active_note - 1);
+});
+$('#next.enabled').live('click',function(){
+    fns.textAreaPopulate(notes.active_note + 1);
+});
 $('#text').live('focusin focusout keyup keydown',function(e){
     switch(e.type){
-        case 'focusin':
-                
-        break;
         case 'keyup':
         case 'keydown':
                 if(this.value != ''){
@@ -68,7 +70,6 @@ $('#text').live('focusin focusout keyup keydown',function(e){
                     $('#notes_list').removeClass('filtered');
                     $('#number').html($('#notes_list li').length);
                 }
-
         break;
         case 'focusout':
         default:
@@ -81,6 +82,7 @@ $('document').ready(function(){
     //set object from localstorage, or default from notes
     notes_from_ls = fns.getObject('notes');
     notes = (notes_from_ls && notes_from_ls.notes_arr.length > 0) ? notes_from_ls : default_notes;
+    if(notes.active_note > (notes.notes_arr.length - 1) ) notes.active_note = 0;
     $.each(notes.notes_arr,function(i,elm){
         _temp = $(note_tpl).data('id',i);
         //templating
@@ -119,7 +121,6 @@ fns.addNewNote = function(){
 };
 fns.removeNote = function(id){
     var _id = (id !== undefined)? id : notes.active_note;
-    
     $('#notes_list li').eq(_id).animate({'height':0},500,function(){
         $(this).remove();
         notes.notes_arr.remove(_id);
@@ -138,6 +139,18 @@ fns.refreshIDs = function(){
        $(this).data('id',i);
     });
 };
+fns.updateBtns = function(){
+    $('#prev,#next,#remove_btn').removeClass('enabled');
+    if(notes.notes_arr.length > 1){
+        $('#remove_btn').addClass('enabled');
+    }
+    if(notes.active_note >0 && notes.notes_arr.length > 1){
+        $('#prev').addClass('enabled');
+    }
+    if(notes.active_note < (notes.notes_arr.length-1) && notes.notes_arr.length > 1){
+        $('#next').addClass('enabled');
+    }
+};
 fns.textAreaPopulate = function(id,elm){
     var _id = id || default_notes.active_note;
     notes.active_note = _id;
@@ -148,6 +161,7 @@ fns.textAreaPopulate = function(id,elm){
     $('#date_time').html(d.toLocaleDateString() +' '+  d.getDate());
     $('#notes_list li').eq(_id).addClass('active').siblings().removeClass('active');
     fns.updateLocalStorage();
+    fns.updateBtns();
 };
 fns.setObject = function(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
