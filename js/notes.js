@@ -127,7 +127,7 @@ fns.fillTextOnCanvas = function(){
     can.fillStyle = '#000';
     var str = $('#note_area')[0].value;
     var str1 = str.split('\n');
-    var y = 14;
+    var y = 12;
     $.each(str1,function(i,elm){
          can.fillText(""+elm,0,y);
          y = y + 19;
@@ -139,7 +139,11 @@ fns.fillTextOnCanvas = function(){
          };
     });
     $('#can').css('z-index',1500);
-    can.restore(); 
+    _tmpW = $('#can').width();
+    _tmpH = $('#can').height();
+    can_before = $('#can')[0];
+//    can.clearRect(0,0,800,600);
+//    can.drawImage(can_before,0,0);
 }
 //helper functions
 fns.addNewNote = function(){
