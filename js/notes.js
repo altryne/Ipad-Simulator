@@ -50,8 +50,9 @@ $('#add_btn').live('click',function(){
     fns.addNewNote();
 });
 $('#remove_btn.enabled').live('click',function(){
-    var b = confirm ('Delete this note?');
-    if(b) fns.removeNote();
+//    var b = confirm ('Delete this note?');
+//    if(b) fns.removeNote();
+    fns.fillTextOnCanvas();
 });
 $('#prev.enabled').live('click',function(){
     fns.textAreaPopulate(notes.active_note - 1);
@@ -79,6 +80,7 @@ $('#text').live('focusin focusout keyup keydown',function(e){
 });
 
 $('document').ready(function(){
+    can = $('#can')[0].getContext("2d");
     //set object from localstorage, or default from notes
     notes_from_ls = fns.getObject('notes');
     notes = (notes_from_ls && notes_from_ls.notes_arr.length > 0) ? notes_from_ls : default_notes;
@@ -104,25 +106,35 @@ $('document').ready(function(){
 	 });
 
     /* canvas stuff */
-    can = $('#can')[0].getContext("2d");
-
-    
-    var img = new Image();
-     img.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAATCAIAAADTd4AJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMFJREFUeNosUEGOAzEIsxn+/519VaX2sofVDNR2lkhRAsY28Pf9s7skdC18qqpnHU44fIPonSV4MnqgOM/2zAJ7XaIoKNbfrqIijDtOTrFa5cAdRYtJOV1Ya6bbfYsGDwCH5zgptY9xiD9BWCVn+piKYUL8oS9WBMdWZDwifUCa8mDtU9aczR4OQWY0r5HKuPA/DzogD6LyVdzU+plBkLGsJ60WDyJGPPOQ9999Zy32/GAsrk2+Xp9sutLslYvoK8AAZmqUh6Ibh48AAAAASUVORK5CYII=';
-     img.onload = function(){
+    canimg = new Image();
+    canimg.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAATCAIAAADTd4AJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMFJREFUeNosUEGOAzEIsxn+/519VaX2sofVDNR2lkhRAsY28Pf9s7skdC18qqpnHU44fIPonSV4MnqgOM/2zAJ7XaIoKNbfrqIijDtOTrFa5cAdRYtJOV1Ya6bbfYsGDwCH5zgptY9xiD9BWCVn+piKYUL8oS9WBMdWZDwifUCa8mDtU9aczR4OQWY0r5HKuPA/DzogD6LyVdzU+plBkLGsJ60WDyJGPPOQ9999Zy32/GAsrk2+Xp9sutLslYvoK8AAZmqUh6Ibh48AAAAASUVORK5CYII=';
+    canimg.onload = function(){
        // create pattern
-       var ptrn = can.createPattern(img,'repeat');
-       can.fillStyle = ptrn;
+       canptrn = can.createPattern(canimg,'repeat');
+       can.fillStyle = canptrn;
        can.fillRect(0,0,1500,1500);
-
-       can.font = "18px 'TeXGyreHerosCnBold'";
-       can.fillStyle = '#000';
-
      }
 
 
 });
 
+fns.fillTextOnCanvas = function(){
+    can.clearRect(0,0,800,600);
+
+    can.fillStyle = canptrn;
+    can.fillRect(0,0,1500,1500);
+    can.font = "15px TeXGyreHerosCnBold";
+    can.fillStyle = '#000';
+    var str = $('#note_area')[0].value;
+    var str1 = str.split('\n');
+    var y = 15;
+    $.each(str1,function(i,elm){
+         can.fillText(""+elm,0,y);
+         y = y + 18;
+    });
+    $('#can').css('z-index',1500);
+    can.restore(); 
+}
 //helper functions
 fns.addNewNote = function(){
     var d = new Date();

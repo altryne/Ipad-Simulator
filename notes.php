@@ -15,7 +15,6 @@
 </head>
 <body>
     <div id="notes_container">
-        <canvas id="can" style="font-family:'TeXGyreHerosCnBold';"></canvas>
         <div id="left_side">
             <div id="search">
                 <div id="counter">
@@ -50,6 +49,7 @@
                 <div id="remove_btn" class="enabled">del</div>
                 <div id="next">-></div>
             </div>
+            <canvas id="can" width="493" height="527" style="font-family:'TeXGyreHerosCnBold';"></canvas>
         </div>
     </div>
 
