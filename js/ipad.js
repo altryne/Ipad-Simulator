@@ -131,7 +131,7 @@ $(document).ready(function(){
 
 
     reflectDock();
-            _page=1; unlockSpring(); slideToPage(1); can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
+            _page=1; unlockSpring(); slideToPage(1);//temporary - todo:remove this
 
 //            create elements in quick search
     $('.pages.apps li,#dock li').each(function(){
@@ -361,6 +361,10 @@ function animateDock(mode){
         {
             case 'in':
                 $(this)
+//                .css({'transform':'translate3d('+_newLeft+'px,'+_newTop+'px,0px)'})
+//                .animate({'transform':'translate3d(0px,0px,0px)'},500)
+//                .css({'transform':'translate3d('+0+'px,'+0+'px,0px)'})
+//                .css({'transform':'rotate('+_newLeft+'deg)'});
                 .css({'left':(_newLeft),'top':(_newTop),'position':'relative'})
                 .animate({'left':0,'top':0},500,'easeOutQuad');
             break;
@@ -414,7 +418,7 @@ function closeApp(){
 }
 function launchApp(app_id){
     if(!can_run_apps) return false;
-    if(app_id == 'safari'){
+    if(app_id == 'Safari'){
         flag = confirm("!! important !! in order to simulate a browser in browser, I'm parsing all websites you may try to access, please DO NOT post any personal info via this simulator! (your browser may warn you about this site being reported phishing attac, this is because I use techniques that may be used for harm, again DO NOT POST any PERSONAL info!");
         if(!flag) return false;
     }

@@ -1,3 +1,9 @@
+@font-face {
+	font-family: 'TeXGyreHerosCnBold';
+	src: local('☺'), url('fonts/texgyreheros-bold-webfont.woff') format('woff'), url('fonts/texgyreheros-bold-webfont.ttf') format('truetype'), url('fonts/texgyreheros-bold-webfont.svg#webfontffClJYIA') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
 body{
 	font-family:Helvetica,Arial,Sans-serif;
 	font-size:16px;

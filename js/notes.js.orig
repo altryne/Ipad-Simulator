@@ -7,7 +7,11 @@
 var fns  = {} ,
     notes = {},
     t,
+<<<<<<< HEAD
+    note_tpl = '<li><span class="name"></span><time class="timeago"></time></li>',
+=======
     note_tpl = '<li><span class="name"></span><time class="timeago"></time><span class="search_str"></span></li>',
+>>>>>>> 732205bab6850c11b791e54ec944443dd080661d
     default_notes = {
     active_note : 0,
     notes_arr :[

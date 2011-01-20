@@ -45,10 +45,13 @@ $apps[3] = Array(
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" href="style/ipad.css" type="text/css" media="screen"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
     <script type="text/javascript" src="js/jquery-ui-1.8.1.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.css.transform.js"></script>
+    <script type="text/javascript" src="js/jquery.css.rotate.js"></script>
     <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/jquery.ui.ipad.js"></script>
     <script type="text/javascript" src="js/ipad.js"></script>

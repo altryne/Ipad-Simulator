@@ -20,3 +20,7 @@ RewriteRule ^(.*)\.html$ $1.php [NC]
     SetOutputFilter DEFLATE
   </FilesMatch>
 </IfModule> 
+
+AddType application/vnd.bw-fontobject .eot
+AddType application/x-font-ttf .ttf
+AddType application/x-woff .woff
