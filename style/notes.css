@@ -220,11 +220,10 @@ span.name:after{
 }
 
 #can{
-    font-family:'TeXGyreHerosCnBold','Helvetica','Arial' !important;
     /*width: 323px;*/
     /*height: 150px;;*/
-    left: 50px;
+    left: 52px;
     z-index: 5;
-    top: 86px;
+    top: 84px;
     
 }
