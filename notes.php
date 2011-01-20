@@ -49,7 +49,7 @@
                 <div id="remove_btn" class="enabled">del</div>
                 <div id="next">-></div>
             </div>
-            <canvas id="can" width="493" height="527" style="font-family:'TeXGyreHerosCnBold';"></canvas>
+            <canvas id="can" width="515" height="527" style="font-family:'TeXGyreHerosCnBold';"></canvas>
         </div>
     </div>
 

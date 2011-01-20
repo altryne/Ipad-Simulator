@@ -127,10 +127,16 @@ fns.fillTextOnCanvas = function(){
     can.fillStyle = '#000';
     var str = $('#note_area')[0].value;
     var str1 = str.split('\n');
-    var y = 15;
+    var y = 14;
     $.each(str1,function(i,elm){
          can.fillText(""+elm,0,y);
-         y = y + 18;
+         y = y + 19;
+        //now we check to see is the string is longer then the width
+         while(elm.length-75 > 0){
+            can.fillText(""+elm.substr(-(elm.length-75)),0,y);
+            y = y + 19;
+            elm = elm.substr(-(elm.length-75));
+         };
     });
     $('#can').css('z-index',1500);
     can.restore(); 
