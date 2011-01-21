@@ -128,17 +128,21 @@ function addZero(num){
 $(document).ready(function(){
     _page = 1;
     _pages = $('ul.page').length;
-
-
     reflectDock();
+
 //            _page=1; unlockSpring(); slideToPage(1); can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
 
 //            create elements in quick search
-    $('.pages.apps li,#dock li').each(function(){
+    $('.page.apps li,#dock li').each(function(){
        if($(this).attr('id') != ''){
          _img = $('.app_logo',this).css('background-image').replace('"','\'');
         _elm = $('<li><div class="app_logo" style="background-image:'+_img+'"></div><span class="search_str">' +$(this).attr('id')+ '</span> </li>');
         _elm.appendTo('#search_result');
+         //launch app from hash
+           if('#!'+$(this).attr('id') == window.location.hash){
+               can_run_apps =  true;
+               launchApp($(this).attr('id'));
+           }
        }
     });
 
@@ -151,10 +155,6 @@ $(document).ready(function(){
     $('#drop').droppable({
         drop: unlockSpring
     });
-
-
-
-
     $('#drag').draggable({
             axis: 'x',
             distance: 20,
@@ -411,6 +411,7 @@ function closeApp(){
     });
     animateDock('outin');
     $('.topbar').removeClass('inapp');
+    window.location.hash = "#spring";
 }
 function launchApp(app_id){
     if(!can_run_apps) return false;
@@ -439,5 +440,6 @@ function launchApp(app_id){
                 }
             });
     active_app = app_id;
+    window.location.hash = "!"+active_app;
     $('.topbar').addClass('inapp');
 }
