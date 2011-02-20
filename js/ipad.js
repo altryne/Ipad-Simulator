@@ -7,12 +7,13 @@
  */
 
 var intervall = 0;
-var can_run_apps = false;
-var tick;
-var doubleclickthreshhold = 200;
-var isDblClick = false;
-var canScroll = true;
-var active_app = '';
+    can_run_apps = false,
+    folder_open = false,
+    tick = '',
+    doubleclickthreshhold = 200,
+    isDblClick = false,
+    canScroll = true,
+    active_app = '';
 
 $('.page .delete,#dock .delete').live('click', function(event) {
     event.stopPropagation();
@@ -264,7 +265,7 @@ function edit_mode(){
                 slideToPage($('#drag ul').index($(ui.placeholder).parent()));
             },
             change: function(event, ui){
-                $(ui.placeholder).animate({width:75,'margin-right':50,'margin-left':50},150);
+                $(ui.placeholder).css({'width':0,'margin-left':0,'margin-right':0}).animate({width:75,'margin-right':50,'margin-left':50},150);
             },
             start: function(event, ui) {
                 $(ui.placeholder).animate({width:1,'margin-right':0,'margin-left':0,overflow:'hidden'},150);
@@ -409,21 +410,29 @@ function closeApp(){
     $('#window').removeClass('out').stop().html('').animate({left:"50%",width:1,top:"50%",height: 1,opacity:0},'easeInQuint',function(){
 
     });
-    animateDock('outin');
+    if(!folder_open){
+        animateDock('outin');
+    }
     $('.topbar').removeClass('inapp');
     window.location.hash = "#spring";
 }
 function launchApp(app_id){
-    if(!can_run_apps) return false;
+    if(folder_open && !$('#'+app_id).is('#folder_cont li')){
+        closeFolder();
+        return false;
+    }
     if($('#'+app_id).is('.folder')) {
         openFolder(app_id);
         return false;
     }
+    if(!can_run_apps) return false;
     if(app_id == 'Safari'){
         flag = confirm("!! important !! in order to simulate a browser in browser, I'm parsing all websites you may try to access, please DO NOT post any personal info via this simulator! (your browser may warn you about this site being reported phishing attac, this is because I use techniques that may be used for harm, again DO NOT POST any PERSONAL info!");
         if(!flag) return false;
     }
-    animateDock('out');
+    if(!folder_open){
+        animateDock('out');
+    }
     _appToLaunch = '?appid='+app_id || null;
     $('#window').addClass('out')
             .stop()
@@ -447,12 +456,32 @@ function launchApp(app_id){
     window.location.hash = "!"+active_app;
     $('.topbar').addClass('inapp');
 }
-
 function openFolder(app_id){
     var papa = $('#'+app_id);
     var cont = $(papa).find('ul').html();
     var children = $(papa).find('ul li').length;
     var height = (children < 6) ? 180 : (children < 11) ? 360 : (children < 3) ? 520 : 700;
     $('#folder_cont').empty().append('<ul class="apps page"></ul>').find('ul').append(cont)
-            .end().addClass('folder_open').animate({'height':height},200);
+            .end().addClass('folder_open').animate({'height':height},500,'easeOutQuad');
+    $.each($('#folder_cont').find('.app'),function(){
+        $(this).attr('id',$(this).attr('data-id'));
+    });
+    toggleFolderBg();
+    folder_open = true;
 };
+function closeFolder(){
+    toggleFolderBg();
+    $('#folder_cont').empty().animate({'height':0},500,'easeOutQuad',function(){
+        $(this).removeClass('folder_open')
+    });
+    folder_open = false;
+}
+function toggleFolderBg(){
+    if(!folder_open){
+        $('#dock,#pages').animate({'bottom':-120},500,'easeOutQuad');
+    }else{
+        $('#pages').animate({'bottom':120},500,'easeOutQuad');
+        $('#dock').animate({'bottom':0},500,'easeOutQuad');
+
+    }
+}

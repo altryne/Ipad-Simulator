@@ -610,6 +610,9 @@ iframe{
     -webkit-border-radius:2px;
     border-radius:2px;
 }
+.folder>.app_logo .delete{
+    display:none !important;
+}
 .folder>.app_logo span{
     display:none;
 }

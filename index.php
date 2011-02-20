@@ -1,8 +1,6 @@
 <?php
 //0 page is the dock
 $apps[0] = Array(
-    'iPod',
-    'Settings',
     'Clock',
     'Safari',
     'Mail'
@@ -12,27 +10,22 @@ $apps[1] = Array(
     'Messages',
     Array('Alex',Array('iPod','Settings','Photos')),
     'Notes',
-    'Photos',
     'Timezones',
     'Weather'
 );
 $apps[2] = Array(
-    'Mail',
+    'Mail2',
     'Stocks',
-    'Maps',
-    'Messages',
-    'Notes',
-    'Photos',
     'iMovie',
 );
 $apps[3] = Array(
-    'Mail',
-    'Stocks',
-    'Maps',
-    'Messages',
-    'Notes',
-    'Photos',
-    'iMovie',
+    'Mail3',
+    'Stocks2',
+    'Maps2',
+    'Messages2',
+    'Notes2',
+    'Photos2',
+    'iMovie2',
 );
 ?>
 
@@ -101,11 +94,11 @@ $apps[3] = Array(
                            <div class="app_logo"">
                            <ul>';
                            foreach($vv[1] as $kkk=>$vvv){
-                                echo '<li id="'.$vvv.'" class="app">
+                                echo '<li data-id="'.$vvv.'" class="app">
                                       <div class="delete">x</div>
                                       <div class="app_logo" style="background:url(\'apps/'.strtolower($vvv).'.jpg\')"></div>
                                       <span>'.$vvv.'</span>
-                                     </li>'."\n";
+                                     </li>';
                             }
                            echo '</ul>
                            </div>
@@ -148,7 +141,7 @@ $apps[3] = Array(
                     else{
                         echo '<li id="'.$vv[0].'" class="app folder">';
                         foreach($vv[1] as $kkk=>$vvv){
-                            echo '<li id="'.$vvv.'" class="app">
+                            echo '<li data-id="'.$vvv.'" class="app">
                                 <div class="delete">x</div>
                                 <div class="app_logo" style="background:url(\'apps/'.strtolower($vvv).'.jpg\')"></div>
                                 <span>'.$vvv.'</span>
