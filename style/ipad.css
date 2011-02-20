@@ -329,7 +329,7 @@ li {
     display: block;
     height: 74px;
     width: 74px;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     border-radius: 15px;
@@ -580,4 +580,71 @@ iframe.onFront{
 iframe{
     border:0;
     margin-top:17px;
+}
+
+/* folders */
+
+.folder>.app_logo{
+    background:url(../apps/blur.jpg) repeat;
+    border:2px solid #bbb;
+    -webkit-box-shadow: inset 2px 4px 6px #000,3px 25px 35px rgba(0, 0, 0, 0.6) !important;
+    -moz-box-shadow: inset 2px 4px 6px #000,3px 25px 35px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: inset 2px 4px 4px #000,3px 25px 35px rgba(0, 0, 0, 0.6) !important;
+
+}
+.folder>.app_logo ul{
+    padding:5px 0 0 4px;
+}
+.folder>.app_logo li{
+    margin:1px 4px 6px !important;
+    padding:0;
+    height:15px !important;
+}
+.folder>.app_logo .app_logo{
+    width:15px;
+    height:15px;
+    -moz-background-size:14px !important;
+    -webkit-background-size:14px !important;
+    background-size:14px !important;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+}
+.folder>.app_logo span{
+    display:none;
+}
+#folder_cont{
+    position:absolute;
+    background:url(../apps/blur.jpg) repeat;
+    /*display:none;*/
+    width:100%;
+    height:0px;
+    overflow:hidden;
+    left:0;
+    top:135px;
+
+    z-index:150;
+}
+#folder_cont.folder_open{
+    -webkit-box-shadow: inset 2px 4px 6px #000,inset -2px 4px 35px rgba(0, 0, 0, 0.6) !important;
+    -moz-box-shadow: inset 0 4px 20px rgba(0,0,0,0.6),inset 0 -4px 20px rgba(0,0,0,0.6);
+    box-shadow: inset 2px 4px 4px #000,inset 3px 25px 35px rgba(0, 0, 0, 0.6) !important;
+    border-top:1px solid rgba(195,195,195,0.5);
+    border-bottom:1px solid rgba(195,195,195,0.5);
+}
+.folder > .app_logo li {
+    margin: 1px 4px 6px;
+
+}
+
+.folder > .app_logo ul {
+    padding: 5px 0 0 4px;
+
+}
+
+.folder > .app_logo .app_logo {
+    -moz-background-size: 14px 14px;
+    height: 14px;
+    width: 14px;
+
 }

@@ -42,7 +42,7 @@ $('#multitask_bar .delete').live('mousedown ', function(event) {
         })
 });
 
-$('.page.apps li,#dock li').live('mousedown mouseup', function(event) {
+$('.page.apps>li,#dock li').live('mousedown mouseup', function(event) {
     if (event.type == 'mousedown') {
         $(this).addClass('mousedown');
         if (!$('#drag').is('.ui-draggable-dragging') && !$('body').is('.editMode')) {
@@ -130,7 +130,7 @@ $(document).ready(function(){
     _pages = $('ul.page').length;
     reflectDock();
 
-//            _page=1; unlockSpring(); slideToPage(1); can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
+            _page=1; unlockSpring(); slideToPage(1); //can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
 
 //            create elements in quick search
     $('.page.apps li,#dock li').each(function(){
@@ -415,6 +415,10 @@ function closeApp(){
 }
 function launchApp(app_id){
     if(!can_run_apps) return false;
+    if($('#'+app_id).is('.folder')) {
+        openFolder(app_id);
+        return false;
+    }
     if(app_id == 'Safari'){
         flag = confirm("!! important !! in order to simulate a browser in browser, I'm parsing all websites you may try to access, please DO NOT post any personal info via this simulator! (your browser may warn you about this site being reported phishing attac, this is because I use techniques that may be used for harm, again DO NOT POST any PERSONAL info!");
         if(!flag) return false;
@@ -443,3 +447,12 @@ function launchApp(app_id){
     window.location.hash = "!"+active_app;
     $('.topbar').addClass('inapp');
 }
+
+function openFolder(app_id){
+    var papa = $('#'+app_id);
+    var cont = $(papa).find('ul').html();
+    var children = $(papa).find('ul li').length;
+    var height = (children < 6) ? 180 : (children < 11) ? 360 : (children < 3) ? 520 : 700;
+    $('#folder_cont').empty().append('<ul class="apps page"></ul>').find('ul').append(cont)
+            .end().addClass('folder_open').animate({'height':height},200);
+};

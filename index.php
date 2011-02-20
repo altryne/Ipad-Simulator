@@ -10,6 +10,7 @@ $apps[0] = Array(
 $apps[1] = Array(
     'Maps',
     'Messages',
+    Array('Alex',Array('iPod','Settings','Photos')),
     'Notes',
     'Photos',
     'Timezones',
@@ -66,7 +67,6 @@ $apps[3] = Array(
             <span class="percentage">99%</span>
         </div>
         <div id="general_wrap">
-
             <div id="drag" style="left:0">
                 <div id="page0" class="page">
                     <form>
@@ -90,11 +90,28 @@ $apps[3] = Array(
                 if($k != 0 && count($v)){
                     echo '<ul id="page'.$k.'" class="apps page">'."\n";
                         foreach($v as $kk=>$vv){
-                        echo '                            <li id="'.$vv.'" class="app">
+                        if(!is_array($vv)){
+                        echo '<li id="'.$vv.'" class="app">
                                 <div class="delete">x</div>
                                 <div class="app_logo" style="background:url(\'apps/'.strtolower($vv).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
                             </li>'."\n";
+                        }else{
+                           echo '<li id="'.$vv[0].'" class="app folder">
+                           <div class="app_logo"">
+                           <ul>';
+                           foreach($vv[1] as $kkk=>$vvv){
+                                echo '<li id="'.$vvv.'" class="app">
+                                      <div class="delete">x</div>
+                                      <div class="app_logo" style="background:url(\'apps/'.strtolower($vvv).'.jpg\')"></div>
+                                      <span>'.$vvv.'</span>
+                                     </li>'."\n";
+                            }
+                           echo '</ul>
+                           </div>
+                           <span>'.$vv[0].'</span>
+                           </li>';
+                        }
                         }
                     echo '</ul>'."\n";
                     }
@@ -102,6 +119,9 @@ $apps[3] = Array(
                 ?>
 
             </div>
+        </div>
+        <div id="folder_cont">
+
         </div>
         <ul id="pages">
             <li class="first">
@@ -118,12 +138,25 @@ $apps[3] = Array(
         <ul id="dock" class="apps">
             <?php
                 foreach($apps[0] as $kk=>$vv){
-                        echo '                            <li id="'.$vv.'" class="app">
+                    if(!is_array($vv)){
+                        echo '<li id="'.$vv.'" class="app">
                                 <div class="delete">x</div>
                                 <div class="app_logo" style="background:url(\'apps/'.strtolower($vv).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
                             </li>'."\n";
                         }
+                    else{
+                        echo '<li id="'.$vv[0].'" class="app folder">';
+                        foreach($vv[1] as $kkk=>$vvv){
+                            echo '<li id="'.$vvv.'" class="app">
+                                <div class="delete">x</div>
+                                <div class="app_logo" style="background:url(\'apps/'.strtolower($vvv).'.jpg\')"></div>
+                                <span>'.$vvv.'</span>
+                            </li>'."\n";
+                        }
+                        echo '</li>';
+                    }
+                }
             ?>
         </ul>
 
