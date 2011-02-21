@@ -96,7 +96,7 @@ li {
     left:0;
     top:0;
     opacity:0;
-    z-index:100;
+    /*z-index:100;*/
 }
 .corner{
     width:20px;
@@ -184,7 +184,7 @@ li {
     width: 884px;
     overflow: hidden;
     position:relative;
-    z-index:100;
+    /*z-index:100;*/
 }
 
 #drag {
@@ -199,14 +199,14 @@ li {
     width: 884px;
     float: left;
     position:relative;
-    z-index:100;
+    /*z-index:100;*/
 }
 
 .page li.app{
     margin: 0 50px !important;
     padding: 15px 0;
     line-height: 20px;
-
+    width:74px;
 }
 .ui-sortable-placeholder{
     overflow:hidden;
@@ -305,10 +305,10 @@ li {
     border-top: 1px solid rgba(195, 195, 195, 0.5);
 
     -moz-transform: rotate(-315deg);
-    -webit-transform: rotate(-315deg);
+    -webkit-transform: rotate(-315deg);
     transform: rotate(-315deg);
     -moz-box-shadow: 8px 7px 17px rgba(0, 0, 0, 0.8) inset;
-    -webkit-box-shadow: 8px 7px 17px rgba(0, 0, 0, 0.8) inset;
+    -webkit-box-shadow:inset 8px 7px 17px rgba(0, 0, 0, 0.8) ;
     box-shadow: 8px 7px 17px rgba(0, 0, 0, 0.8) inset;
     top: 13px;
     left: 21px;
@@ -650,9 +650,9 @@ iframe{
     z-index: 99;
 }
 #folder_cont.folder_open{
-    -webkit-box-shadow: inset 2px 4px 6px #000,inset -2px 4px 35px rgba(0, 0, 0, 0.6) !important;
+    -webkit-box-shadow:inset 0 4px 20px rgba(0,0,0,0.6),inset 0 -4px 20px rgba(0,0,0,0.6);
     -moz-box-shadow: inset 0 4px 20px rgba(0,0,0,0.6),inset 0 -4px 20px rgba(0,0,0,0.6);
-    box-shadow: inset 2px 4px 4px #000,inset 3px 25px 35px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: inset 0 4px 20px rgba(0,0,0,0.6),inset 0 -4px 20px rgba(0,0,0,0.6);
     border-top:1px solid rgba(195,195,195,0.5);
     border-bottom:1px solid rgba(195,195,195,0.5);
 }
@@ -675,5 +675,6 @@ iframe{
 
 .folder > .app_logo {
     height: 70px;
+    width: 70px;
 
 }

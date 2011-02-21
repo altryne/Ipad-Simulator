@@ -1,17 +1,31 @@
 <?php
 //0 page is the dock
 $apps[0] = Array(
-    'Clock',
+    'Clock1',
     'Safari',
     'Mail'
 );
 $apps[1] = Array(
     'Maps',
-    'Messages',
-    Array('Alex',Array('iPod','Settings','Photos')),
+    'Messages1',
     'Notes',
     'Timezones',
-    'Weather'
+    'Weather1',
+    Array('WTF',Array('Messages','Weather','Clock','bla4','bla5','bla6')),
+    'Weather2',
+    'Weather3',
+    'Weather4',
+    'Weather5',
+    'Weather6',
+    Array('Alex',Array('iPod','Settings','Photos')),
+    'Weather7',
+    'Weather8',
+    'Weather9',
+    'Weather10',
+    'Weather11',
+    'Weather12',
+    'Weather13',
+    'Weather14',
 );
 $apps[2] = Array(
     'Mail2',
@@ -88,11 +102,11 @@ $apps[3] = Array(
                                 <div class="delete">x</div>
                                 <div class="app_logo" style="background:url(\'apps/'.strtolower($vv).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
-                            </li>'."\n";
+                            </li>';
                         }else{
                            echo '<li id="'.$vv[0].'" class="app folder">
                            <div class="app_logo"">
-                           <ul>';
+                           <ul class="ui-sortable">';
                            foreach($vv[1] as $kkk=>$vvv){
                                 echo '<li data-id="'.$vvv.'" class="app">
                                       <div class="delete">x</div>
@@ -106,7 +120,7 @@ $apps[3] = Array(
                            </li>';
                         }
                         }
-                    echo '</ul>'."\n";
+                    echo '</ul>';
                     }
                 }
                 ?>
@@ -136,7 +150,7 @@ $apps[3] = Array(
                                 <div class="delete">x</div>
                                 <div class="app_logo" style="background:url(\'apps/'.strtolower($vv).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
-                            </li>'."\n";
+                            </li>';
                         }
                     else{
                         echo '<li id="'.$vv[0].'" class="app folder">';
@@ -145,7 +159,7 @@ $apps[3] = Array(
                                 <div class="delete">x</div>
                                 <div class="app_logo" style="background:url(\'apps/'.strtolower($vvv).'.jpg\')"></div>
                                 <span>'.$vvv.'</span>
-                            </li>'."\n";
+                            </li>';
                         }
                         echo '</li>';
                     }

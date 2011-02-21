@@ -60,6 +60,7 @@ $('.page.apps>li,#dock li').live('mousedown mouseup', function(event) {
             launchApp($(this).attr('id'));
         }
     }
+//    event.stopPropagation();
 });
 
 $('#search_result li.show').live('click',function(){
@@ -156,10 +157,14 @@ $(document).ready(function(){
     $('#drop').droppable({
         drop: unlockSpring
     });
+
     $('#drag').draggable({
             axis: 'x',
-            distance: 20,
+            distance: 50,
             start:function(){
+                if(!canScroll) {
+                    return false;
+                }
                 window['_dragStart'] = $('#drag').css('left');
             },
             stop:function(){
@@ -179,7 +184,14 @@ $(document).ready(function(){
                 }
 
             }
+    }).click(function(event){
+        if(folder_open && $(event.target).parents('.folder').length == 0) {
+            closeFolder();
+//            console.log('asdasdasd');
+            return false;
+        }
     });
+    
         //add left and right keys to navigate to pages for convenience
         $(document).keydown(function(e){
             if(e.keyCode == 39){
@@ -232,6 +244,8 @@ function homeBtnClick(){
         $('.apps').sortable('destroy');
     }else if($('#window').is('.out')){
         closeApp();
+    }else if(folder_open){
+        closeFolder();
     }
     else{
         $('#drag').css('left',0);
@@ -314,7 +328,7 @@ function reflectDock(){
 }
 //define custom animation based on app icon location. so Icons spead out like in iOS
 function animateDock(mode){
-    $('#page'+_page+'.apps li').each(function(){
+    $('#page'+_page+'.apps>li').each(function(){
         _origLeft = $(this).position().left;
         _origTop = $(this).position().top;
         switch(_origLeft){
@@ -341,20 +355,20 @@ function animateDock(mode){
         }
         switch(_origTop){
             case 10:
-            case -200:
-                _newTop = -200;
+            case -450:
+                _newTop = -450;
             break;
-            case 139:
-            case -250:
-                _newTop = -250;
+            case 136:
+            case -450:
+                _newTop = -450;
             break;
-            case 268:
-            case 250:
-                _newTop = +250;
+            case 262:
+            case 450:
+                _newTop = +450;
             break;
-            case 397:
-            case 200:
-                _newTop = +200;
+            case 388:
+            case 450:
+                _newTop = +450;
             break;
         }
 
@@ -458,10 +472,14 @@ function launchApp(app_id){
 }
 function openFolder(app_id){
     var papa = $('#'+app_id);
-    papa.addClass('open_folder');
-    var cont = $(papa).find('ul').html();
-    var children = $(papa).find('ul li').length;
+    var cont = papa.find('ul').html();
+    var children = papa.find('ul li').length;
     var height = (children < 6) ? 180 : (children < 11) ? 360 : (children < 3) ? 520 : 700;
+    var moveListTop = papa.parent().children().index(papa);
+    var newListHeight = (moveListTop < 5 ) ? 0 : (moveListTop < 10) ? -125 : (moveListTop < 15) ? -251 : -376;
+    $('#drag').animate({top:newListHeight},200,'easeOutQuad',function(){
+        papa.addClass('open_folder');
+    });
     $('#folder_cont').empty().append('<ul class="apps page"></ul>').find('ul').append(cont)
             .end().addClass('folder_open').animate({'height':height},500,'easeOutQuad');
     $.each($('#folder_cont').find('.app'),function(){
@@ -469,16 +487,17 @@ function openFolder(app_id){
     });
     toggleFolderBg();
     folder_open = true;
+    canScroll = false;
 };
 function closeFolder(){
     toggleFolderBg();
     $('.open_folder').removeClass('open_folder');
+    $('#drag').animate({top:0},200,'easeOutQuad');
     $('#folder_cont').empty().animate({'height':0},500,'easeOutQuad',function(){
         $(this).removeClass('folder_open');
-
-
     });
     folder_open = false;
+    canScroll = true;
 }
 function toggleFolderBg(){
     if(!folder_open){
