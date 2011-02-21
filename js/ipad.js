@@ -458,6 +458,7 @@ function launchApp(app_id){
 }
 function openFolder(app_id){
     var papa = $('#'+app_id);
+    papa.addClass('open_folder');
     var cont = $(papa).find('ul').html();
     var children = $(papa).find('ul li').length;
     var height = (children < 6) ? 180 : (children < 11) ? 360 : (children < 3) ? 520 : 700;
@@ -471,8 +472,11 @@ function openFolder(app_id){
 };
 function closeFolder(){
     toggleFolderBg();
+    $('.open_folder').removeClass('open_folder');
     $('#folder_cont').empty().animate({'height':0},500,'easeOutQuad',function(){
-        $(this).removeClass('folder_open')
+        $(this).removeClass('folder_open');
+
+
     });
     folder_open = false;
 }

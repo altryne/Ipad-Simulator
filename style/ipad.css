@@ -291,6 +291,27 @@ li {
 .apps li span{
     position:relative;
     z-index:15;
+
+}
+.apps li.open_folder span{
+    position:relative;
+    z-index: 500;
+    display: block;
+    background: url(../apps/blur.jpg) repeat;
+    height: 35px;
+    width: 35px;
+    text-indent: -9999px;
+    border-left: 1px solid rgba(195, 195, 195, 0.5);
+    border-top: 1px solid rgba(195, 195, 195, 0.5);
+
+    -moz-transform: rotate(-315deg);
+    -webit-transform: rotate(-315deg);
+    transform: rotate(-315deg);
+    -moz-box-shadow: 8px 7px 17px rgba(0, 0, 0, 0.8) inset;
+    -webkit-box-shadow: 8px 7px 17px rgba(0, 0, 0, 0.8) inset;
+    box-shadow: 8px 7px 17px rgba(0, 0, 0, 0.8) inset;
+    top: 13px;
+    left: 21px;
 }
 .delete{
     display:none;
@@ -590,7 +611,7 @@ iframe{
     -webkit-box-shadow: inset 2px 4px 6px #000,3px 25px 35px rgba(0, 0, 0, 0.6) !important;
     -moz-box-shadow: inset 2px 4px 6px #000,3px 25px 35px rgba(0, 0, 0, 0.6) !important;
     box-shadow: inset 2px 4px 4px #000,3px 25px 35px rgba(0, 0, 0, 0.6) !important;
-
+    height:70px !important;
 }
 .folder>.app_logo ul{
     padding:5px 0 0 4px;
@@ -614,7 +635,7 @@ iframe{
     display:none !important;
 }
 .folder>.app_logo span{
-    display:none;
+    display:none !important;
 }
 #folder_cont{
     position:absolute;
@@ -626,7 +647,7 @@ iframe{
     left:0;
     top:135px;
 
-    z-index:150;
+    z-index: 99;
 }
 #folder_cont.folder_open{
     -webkit-box-shadow: inset 2px 4px 6px #000,inset -2px 4px 35px rgba(0, 0, 0, 0.6) !important;
@@ -649,5 +670,10 @@ iframe{
     -moz-background-size: 14px 14px;
     height: 14px;
     width: 14px;
+
+}
+
+.folder > .app_logo {
+    height: 70px;
 
 }
