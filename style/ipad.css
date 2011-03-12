@@ -214,7 +214,6 @@ li {
     margin: 0 50px;
 }
 .ui-sortable-helper {
-
     margin: 0 50px;
     padding: 15px 0;
     line-height: 20px;
@@ -362,6 +361,19 @@ li {
     -moz-transform:scale(1.2);
     -webkit-transform:scale(1.2);
     -o-transform:scale(1.2);
+    transform:scale(1.2);
+
+}
+.ui-sortable-helper.overFolder{
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+    -moz-transform:scale(1);
+    -webkit-transform:scale(1);
+    -o-transform:scale(1);
+    transform:scale(1);
+
 }
 .ui-sortable-helper .app_logo{
     opacity:0.6;
@@ -604,11 +616,14 @@ iframe{
 }
 
 /* folders */
-
 .folder>.app_logo{
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
     background:url(../apps/blur.jpg) repeat;
     border:2px solid #bbb;
-    -webkit-box-shadow: inset 2px 4px 6px #000,3px 25px 35px rgba(0, 0, 0, 0.6) !important;
+    -webkit-box-shadow: inset 2px 4px 6px #000,3px 25px 35px rgba(0, 0, 0, 0.6);
     -moz-box-shadow: inset 2px 4px 6px #000,3px 25px 35px rgba(0, 0, 0, 0.6) !important;
     box-shadow: inset 2px 4px 4px #000,3px 25px 35px rgba(0, 0, 0, 0.6) !important;
     height:70px !important;
@@ -620,6 +635,7 @@ iframe{
     margin:1px 4px 6px !important;
     padding:0;
     height:15px !important;
+    width:15px !important;
 }
 .folder>.app_logo .app_logo{
     width:15px;
@@ -636,6 +652,29 @@ iframe{
 }
 .folder>.app_logo span{
     display:none !important;
+}
+.folder.over>.app_logo{
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+	border:3px solid #fff;
+	/*-webkit-transform: scale(1.5%);*/
+	padding:5px;
+	left:-5px;
+	top:-5px;
+	position:relative;
+	-webkit-box-shadow: 0px 0px 25px #fff!important;
+    -moz-box-shadow:0px 0px 25px #fff!important;
+    box-shadow: 0px 0px 25px #fff!important;
+	background:rgba(0,0,0,0.8);
+}
+.folder.over>span{
+	-webkit-transition: all 0.2s ease-out;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+	opacity:0;
 }
 #folder_cont{
     position:absolute;

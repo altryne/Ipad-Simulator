@@ -132,7 +132,7 @@ $(document).ready(function(){
     _pages = $('ul.page').length;
     reflectDock();
 
-            _page=1; unlockSpring(); slideToPage(1); //can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
+            _page=1; unlockSpring(); slideToPage(1); edit_mode();//can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
 
 //            create elements in quick search
     $('.page.apps li,#dock li').each(function(){
@@ -198,6 +198,8 @@ $(document).ready(function(){
                 slideToPage(_page+1);
             }else if(e.keyCode == 37){
                 slideToPage(_page-1);
+            }else if(e.keyCode == 27){
+                homeBtnClick();
             }
         });
  });
@@ -289,6 +291,24 @@ function edit_mode(){
                 $(ui.item).removeClass('mousedown');
             }
         });
+        $('.folder').droppable({
+            tolerance : 'pointer',
+            drop: function(e,ui){
+                $(e.target).removeClass('over');
+                $(ui.helper).appendTo($(e.target).find('ul'));
+            },
+            over: function(e,ui){
+                folder_timeout = setTimeout(function(){
+                    $(e.target).addClass('over');
+                    $(ui.helper).addClass('overFolder');
+                },500);
+            },
+            out: function(e,ui){
+                clearTimeout(folder_timeout);
+                $(e.target).removeClass('over');
+                $(ui.helper).removeClass('overFolder');
+            }
+        })
 
     window.clearInterval(intervall);
 };

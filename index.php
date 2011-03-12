@@ -6,32 +6,33 @@ $apps[0] = Array(
     'Mail'
 );
 $apps[1] = Array(
-    'Maps',
-    'Messages1',
-    'Notes',
-    'Timezones',
-    'Weather1',
-    Array('WTF',Array('Messages','Weather','Clock','bla4','bla5','bla6')),
-    'Weather2',
-    'Weather3',
-    'Weather4',
-    'Weather5',
-    'Weather6',
-    Array('Alex',Array('iPod','Settings','Photos')),
-    'Weather7',
-    'Weather8',
-    'Weather9',
-    'Weather10',
-    'Weather11',
-    'Weather12',
-    'Weather13',
-    'Weather14',
-);
-$apps[2] = Array(
     'Mail2',
     'Stocks',
+    Array('WTF',Array('Messages','Weather','Clock','Maps','Notes','Timezones')),
     'iMovie',
 );
+$apps[2] = Array(
+    'Maps',
+//    'Messages1',
+//    'Notes',
+//    'Timezones',
+//    'Weather1',
+//    'Weather2',
+//    'Weather3',
+//    'Weather4',
+//    'Weather5',
+//    'Weather6',
+//    Array('Alex',Array('iPod','Settings','Photos')),
+//    'Weather7',
+//    'Weather8',
+//    'Weather9',
+//    'Weather10',
+//    'Weather11',
+//    'Weather12',
+//    'Weather13',
+//    'Weather14',
+);
+
 $apps[3] = Array(
     'Mail3',
     'Stocks2',
