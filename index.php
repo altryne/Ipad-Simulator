@@ -42,10 +42,10 @@ $apps[3] = Array(
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>iPad Simulator - alexw.me</title>
+<title>iPad2 Simulator - alexw.me</title>
 	<meta charset="utf-8">
-    <meta name="description" content="This is a jquery iPad simulator, this is only an experiment of what can be done with javascript in ast browsers">
-    <meta name="keywords" content="Ipad, ipad simulator, apple ipad, alexw.me, altryne, alex wolkov, ipad javascript simulator">
+    <meta name="description" content="This is a jquery iPad2 simulator, this is only an experiment of what can be done with javascript in ast browsers">
+    <meta name="keywords" content="Ipad, ipad simulator, apple ipad,ipad2,iPad2, iPad2 simulator, apple ipad2,mobile safari simulator, alexw.me, altryne, alex wolkov, ipad javascript simulator">
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
