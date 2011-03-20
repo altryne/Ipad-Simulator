@@ -42,7 +42,7 @@ $apps[3] = Array(
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>iPad2 Simulator - alexw.me</title>
+    <title>iPad2 simulator /w Css3, Jquery and HTML5 | alexw.me</title>
 	<meta charset="utf-8">
     <meta name="description" content="This is a jquery iPad2 simulator, this is only an experiment of what can be done with javascript in ast browsers">
     <meta name="keywords" content="Ipad, ipad simulator, apple ipad,ipad2,iPad2, iPad2 simulator, apple ipad2,mobile safari simulator, alexw.me, altryne, alex wolkov, ipad javascript simulator">
@@ -51,6 +51,7 @@ $apps[3] = Array(
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <link rel="icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" href="style/ipad.css" type="text/css" media="screen"/>
+    <link rel="image_src" href="http://alexw.me/ipad2/apps/facebook.jpg" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
     <script type="text/javascript" src="js/jquery-ui-1.8.1.custom.min.js"></script>
@@ -60,8 +61,8 @@ $apps[3] = Array(
 </head>
 <body id="ipad">
 <div id="externalContainer">
-    <iframe frameborder="0" scrolling="no" allowtransparency="true" class="share_icon" src="http://www.facebook.com/plugins/like.php?href=alex2.me%2Fipad&amp;layout=box_count&amp;show_faces=false&amp;width=78&amp;action=like&amp;font=tahoma&amp;colorscheme=light&amp;height=65" id="fblike"></iframe>
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alexw.me/ipad2" data-count="vertical" data-via="altryne">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Falexw.me%2Fipad2&amp;layout=box_count&amp;show_faces=false&amp;width=78&amp;action=like&amp;font&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" class="share_icon" allowTransparency="true"></iframe>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alexw.me/ipad2" data-text="iPad2 simulator /w Css3, Jquery and HTML5" data-count="vertical" data-via="altryne">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <div id="content_overflow">
     <div id="content" class="hide_spring">
         <div id="window"></div>
