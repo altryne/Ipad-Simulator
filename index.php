@@ -5,7 +5,8 @@ $apps[0] = Array(
     'Settings',
     'Clock',
     'Safari',
-    'Mail'
+    'Mail',
+    'iMovie'
 );
 $apps[1] = Array(
     'Maps',

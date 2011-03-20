@@ -294,7 +294,7 @@ li {
     width: 94px;
     height:96px;
 }
-#dock .apps li,#dock .ui-sortable-helper{
+#dock.apps li,#dock .ui-sortable-helper{
     margin:0 25px;
 }
 .apps .mousedown .app_logo {
