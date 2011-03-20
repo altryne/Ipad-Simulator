@@ -9,7 +9,11 @@ $apps[0] = Array(
 );
 $apps[1] = Array(
     'Maps',
-    'Messages',
+    'iMovie',
+    'camera',
+    'Photo Booth',
+    'facetime',
+    'Game Center',
     'Notes',
     'Photos',
     'Timezones',
@@ -90,9 +94,9 @@ $apps[3] = Array(
                 if($k != 0 && count($v)){
                     echo '<ul id="page'.$k.'" class="apps page">'."\n";
                         foreach($v as $kk=>$vv){
-                        echo '                            <li id="'.$vv.'" class="app">
+                        echo '<li id="'.str_replace(' ','',strtolower($vv)).'" class="app">
                                 <div class="delete">x</div>
-                                <div class="app_logo" style="background:url(\'apps/'.strtolower($vv).'.jpg\')"></div>
+                                <div class="app_logo" style="background-image:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
                             </li>'."\n";
                         }
@@ -118,9 +122,9 @@ $apps[3] = Array(
         <ul id="dock" class="apps">
             <?php
                 foreach($apps[0] as $kk=>$vv){
-                        echo '                            <li id="'.$vv.'" class="app">
+                        echo '<li id="'.str_replace(' ','',strtolower($vv)).'" class="app">
                                 <div class="delete">x</div>
-                                <div class="app_logo" style="background:url(\'apps/'.strtolower($vv).'.jpg\')"></div>
+                                <div class="app_logo" style="background-image:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
                             </li>'."\n";
                         }
