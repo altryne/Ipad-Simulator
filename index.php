@@ -46,7 +46,7 @@ $apps[3] = Array(
 	<meta charset="utf-8">
     <meta name="description" content="This is a jquery iPad2 simulator, this is only an experiment of what can be done with javascript in ast browsers">
     <meta name="keywords" content="Ipad, ipad simulator, apple ipad,ipad2,iPad2, iPad2 simulator, apple ipad2,mobile safari simulator, alexw.me, altryne, alex wolkov, ipad javascript simulator">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=2.0; user-scalable=1;"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <link rel="icon" type="image/png" href="favicon.ico">
@@ -60,6 +60,8 @@ $apps[3] = Array(
 </head>
 <body id="ipad">
 <div id="externalContainer">
+    <iframe frameborder="0" scrolling="no" allowtransparency="true" class="share_icon" src="http://www.facebook.com/plugins/like.php?href=alex2.me%2Fipad&amp;layout=box_count&amp;show_faces=false&amp;width=78&amp;action=like&amp;font=tahoma&amp;colorscheme=light&amp;height=65" id="fblike"></iframe>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alexw.me/ipad2" data-count="vertical" data-via="altryne">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <div id="content_overflow">
     <div id="content" class="hide_spring">
         <div id="window"></div>

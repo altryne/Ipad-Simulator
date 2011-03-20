@@ -24,6 +24,13 @@ li {
     position:relative;
     
 }
+.share_icon,.twitter-share-button{
+    border: medium none; overflow: hidden; width: 78px; height: 65px; position: absolute; top: 0pt; right: -106px; margin-top: 0pt;
+}
+.twitter-share-button{
+    right:-80px;
+    top:72px;
+}
 #content_overflow{
     width: 885px;
     height: 662px;
