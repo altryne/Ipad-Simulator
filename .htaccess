@@ -2,6 +2,7 @@ AddType video/ogg  .ogv
 AddType video/mp4  .mp4
 AddType video/webm .webm
 
+RedirectMatch 301 ^http://alexw.me/ipad/(.*) http://alexw.me/ipad2/$1
 Options +FollowSymlinks
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -19,7 +20,7 @@ RewriteRule ^(.*)\.html$ $1.php [NC]
   <FilesMatch "\.(ttf|otf|eot|svg)$" >
     SetOutputFilter DEFLATE
   </FilesMatch>
-</IfModule> 
+</IfModule>
 
 AddType application/vnd.bw-fontobject .eot
 AddType application/x-font-ttf .ttf
