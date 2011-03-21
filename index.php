@@ -1,61 +1,56 @@
 <?php
 //0 page is the dock
 $apps[0] = Array(
-    'Clock1',
+    'iPod',
+    'Settings',
+    'Clock',
     'Safari',
-    'Mail'
+    'Mail',
+    'iMovie'
 );
 $apps[1] = Array(
-    'Mail2',
-    'Stocks',
+    'Maps',
     Array('WTF',Array('Messages','Weather','Clock','Maps','Notes','Timezones')),
-    'iMovie',
+    'camera',
+    'Photo Booth',
+    'facetime',
+    'Game Center',
+    'Notes',
+    'Photos',
+    'Timezones',
+    'Weather',
 );
 $apps[2] = Array(
+    'Mail',
+    'Stocks',
     'Maps',
-//    'Messages1',
-//    'Notes',
-//    'Timezones',
-//    'Weather1',
-//    'Weather2',
-//    'Weather3',
-//    'Weather4',
-//    'Weather5',
-//    'Weather6',
-//    Array('Alex',Array('iPod','Settings','Photos')),
-//    'Weather7',
-//    'Weather8',
-//    'Weather9',
-//    'Weather10',
-//    'Weather11',
-//    'Weather12',
-//    'Weather13',
-//    'Weather14',
+    'Notes',
+    'Photos',
+    'iMovie',
 );
-
 $apps[3] = Array(
-    'Mail3',
-    'Stocks2',
-    'Maps2',
-    'Messages2',
-    'Notes2',
-    'Photos2',
-    'iMovie2',
+    'Mail',
+    'Stocks',
+    'Maps',
+    'Notes',
+    'Photos',
+    'iMovie',
 );
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>iPad Simulator - alexw.me</title>
+    <title>iPad2 simulator /w Css3, Jquery and HTML5 | alexw.me</title>
 	<meta charset="utf-8">
-    <meta name="description" content="This is a jquery iPad simulator, this is only an experiment of what can be done with javascript in ast browsers">
-    <meta name="keywords" content="Ipad, ipad simulator, apple ipad, alexw.me, altryne, alex wolkov, ipad javascript simulator">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+    <meta name="description" content="This is a jquery iPad2 simulator, this is only an experiment of what can be done with javascript in ast browsers">
+    <meta name="keywords" content="Ipad, ipad simulator, apple ipad,ipad2,iPad2, iPad2 simulator, apple ipad2,mobile safari simulator, alexw.me, altryne, alex wolkov, ipad javascript simulator">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=2.0; user-scalable=1;"/>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <link rel="icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" href="style/ipad.css" type="text/css" media="screen"/>
+    <link rel="image_src" href="http://alexw.me/ipad2/apps/facebook.jpg" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
     <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
     <script type="text/javascript" src="js/jquery-ui-1.8.1.custom.min.js"></script>
@@ -65,6 +60,8 @@ $apps[3] = Array(
 </head>
 <body id="ipad">
 <div id="externalContainer">
+    <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Falexw.me%2Fipad2&amp;layout=box_count&amp;show_faces=false&amp;width=78&amp;action=like&amp;font&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" class="share_icon" allowTransparency="true"></iframe>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alexw.me/ipad2" data-text="iPad2 simulator /w Css3, Jquery and HTML5" data-count="vertical" data-via="altryne">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <div id="content_overflow">
     <div id="content" class="hide_spring">
         <div id="window"></div>
@@ -99,9 +96,9 @@ $apps[3] = Array(
                     echo '<ul id="page'.$k.'" class="apps page">'."\n";
                         foreach($v as $kk=>$vv){
                         if(!is_array($vv)){
-                        echo '<li id="'.$vv.'" class="app">
+                        echo '<li id="'.str_replace(' ','',strtolower($vv)).'" class="app">
                                 <div class="delete">x</div>
-                                <div class="app_logo" style="background:url(\'apps/'.strtolower($vv).'.jpg\')"></div>
+                                <div class="app_logo" style="background:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
                             </li>';
                         }else{
@@ -147,18 +144,18 @@ $apps[3] = Array(
             <?php
                 foreach($apps[0] as $kk=>$vv){
                     if(!is_array($vv)){
-                        echo '<li id="'.$vv.'" class="app">
+                        echo '<li id="'.str_replace(' ','',strtolower($vv)).'" class="app">
                                 <div class="delete">x</div>
-                                <div class="app_logo" style="background:url(\'apps/'.strtolower($vv).'.jpg\')"></div>
+                                <div class="app_logo" style="background:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
                             </li>';
                         }
                     else{
-                        echo '<li id="'.$vv[0].'" class="app folder">';
+                        echo '<li id="'.str_replace(' ','',strtolower($vv[0])).'" class="app folder">';
                         foreach($vv[1] as $kkk=>$vvv){
                             echo '<li data-id="'.$vvv.'" class="app">
                                 <div class="delete">x</div>
-                                <div class="app_logo" style="background:url(\'apps/'.strtolower($vvv).'.jpg\')"></div>
+                                <div class="app_logo" style="background:url(\'apps/'.str_replace(' ','',strtolower($vvv)).'.jpg\')"></div>
                                 <span>'.$vvv.'</span>
                             </li>';
                         }

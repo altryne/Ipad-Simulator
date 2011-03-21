@@ -49,6 +49,9 @@ $('.page.apps>li,#dock li').live('mousedown mouseup', function(event) {
         if (!$('#drag').is('.ui-draggable-dragging') && !$('body').is('.editMode')) {
             can_run_apps = true;
             intervall = setTimeout("edit_mode()", '2000');
+        }else if($(this).hasClass('folder') && $('body').is('.editMode')){
+            openFolder($(this).attr('id'));
+            return false;
         }
         
     } else {
@@ -270,6 +273,7 @@ function edit_mode(){
 
         $('body').addClass('editMode');
         $('.apps').sortable({
+            distance : 100,
             revert : true,
             handle : '.app_logo',
             connectWith: '.apps',
@@ -293,7 +297,11 @@ function edit_mode(){
         });
         $('.folder').droppable({
             tolerance : 'pointer',
+            revert : false,
             drop: function(e,ui){
+                ui.helper.css('display','none').remove();
+                ui.draggable.clone(true).attr('data-id',ui.draggable.attr('id')).attr('id','').removeClass('mousedown').appendTo($(e.target).find('ul')).show().css({'position':'relative'});
+                ui.draggable.css('display','none').remove();
                 $(e.target).removeClass('over');
                 $(ui.helper).appendTo($(e.target).find('ul'));
             },
@@ -497,8 +505,9 @@ function openFolder(app_id){
     var height = (children < 6) ? 180 : (children < 11) ? 360 : (children < 3) ? 520 : 700;
     var moveListTop = papa.parent().children().index(papa);
     var newListHeight = (moveListTop < 5 ) ? 0 : (moveListTop < 10) ? -125 : (moveListTop < 15) ? -251 : -376;
+    papa.addClass('open_folder');
     $('#drag').animate({top:newListHeight},200,'easeOutQuad',function(){
-        papa.addClass('open_folder');
+
     });
     $('#folder_cont').empty().append('<ul class="apps page"></ul>').find('ul').append(cont)
             .end().addClass('folder_open').animate({'height':height},500,'easeOutQuad');

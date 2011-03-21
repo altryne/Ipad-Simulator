@@ -19,7 +19,7 @@ RewriteRule ^(.*)\.html$ $1.php [NC]
   <FilesMatch "\.(ttf|otf|eot|svg)$" >
     SetOutputFilter DEFLATE
   </FilesMatch>
-</IfModule> 
+</IfModule>
 
 AddType application/vnd.bw-fontobject .eot
 AddType application/x-font-ttf .ttf

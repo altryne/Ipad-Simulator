@@ -24,6 +24,13 @@ li {
     position:relative;
     
 }
+.share_icon,.twitter-share-button{
+    border: medium none; overflow: hidden; width: 78px; height: 65px; position: absolute; top: 0pt; right: -106px; margin-top: 0pt;
+}
+.twitter-share-button{
+    right:-80px;
+    top:72px;
+}
 #content_overflow{
     width: 885px;
     height: 662px;
@@ -203,10 +210,10 @@ li {
 }
 
 .page li.app{
-    margin: 0 50px !important;
+    margin: 0 40px !important;
     padding: 15px 0;
     line-height: 20px;
-    width:74px;
+    /*width:74px;*/
 }
 .ui-sortable-placeholder{
     overflow:hidden;
@@ -283,6 +290,11 @@ li {
     color: #fff;
     font-family: Arial;
     text-shadow: #000 1px 1px 0px;
+    width: 94px;
+    height:96px;
+}
+#dock.apps li,#dock .ui-sortable-helper{
+    margin:0 25px;
 }
 .apps .mousedown .app_logo {
     opacity:0.68;
@@ -310,7 +322,7 @@ li {
     -webkit-box-shadow:inset 8px 7px 17px rgba(0, 0, 0, 0.8) ;
     box-shadow: 8px 7px 17px rgba(0, 0, 0, 0.8) inset;
     top: 13px;
-    left: 21px;
+    left: 28px;
 }
 .delete{
     display:none;
@@ -342,9 +354,7 @@ li {
 #dock .delete{
     top:-5px !important;
 }
-.apps li,.ui-sortable-helper {
-    height:96px;
-}
+
 .apps li .app_logo,.ui-sortable-helper .app_logo {
     display: block;
     height: 74px;
@@ -355,7 +365,8 @@ li {
     border-radius: 15px;
     -moz-box-shadow: 3px 25px 35px rgba(0, 0, 0, 0.6); /* FF3.5+ */
     -webkit-box-shadow: 3px 25px 35px rgba(0, 0, 0, 0.6); /* Saf3.0+, Chrome */
-    box-shadow: 3px 25px 35px rgba(0, 0, 0, 0.6); /* Opera 10.5, IE 9.0 */
+    box-shadow: 3px 25px 35px rgba(0, 0, 0, 0.6);
+    margin: 0 auto 6px; /* Opera 10.5, IE 9.0 */
 }
 .ui-sortable-helper{
     -moz-transform:scale(1.2);
@@ -715,5 +726,6 @@ iframe{
 .folder > .app_logo {
     height: 70px;
     width: 70px;
+    overflow: hidden;
 
 }
