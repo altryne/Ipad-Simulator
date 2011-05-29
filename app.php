@@ -24,17 +24,16 @@
     <body>
     <div id="content" class="container_24">
         <div class="grid_4 ">
-            <script type="text/javascript"><!--
-            google_ad_client = "pub-4788291002967314";
-            /* 160x600, created 7/13/10 */
-            google_ad_slot = "5543103889";
-            google_ad_width = 160;
-            google_ad_height = 600;
-            //-->
-            </script>
-            <script type="text/javascript"
-            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-            </script>
+            <!-- Begin: adBrite, Generated: 2011-05-29 14:52:04  -->
+<style type="text/css">
+   .adHeadline {font: bold 10pt Arial; text-decoration: underline; color: #000000;}
+   .adText {font: normal 10pt Arial; text-decoration: none; color: #656565;}
+</style>
+<script type="text/javascript">
+try{var AdBrite_Iframe=window.top!=window.self?2:1;var AdBrite_Referrer=document.referrer==''?document.location:document.referrer;AdBrite_Referrer=encodeURIComponent(AdBrite_Referrer);}catch(e){var AdBrite_Iframe='';var AdBrite_Referrer='';}
+document.write(String.fromCharCode(60,83,67,82,73,80,84));document.write(' src="http://ads.adbrite.com/mb/text_group.php?sid=1949030&br=1&dk=646f6d61696e206e616d655f385f325f776562&ifr='+AdBrite_Iframe+'&ref='+AdBrite_Referrer+'" type="text/javascript">');document.write(String.fromCharCode(60,47,83,67,82,73,80,84,62));</script>
+<div><a class="adHeadline" target="_top" href="http://www.adbrite.com/mb/commerce/purchase_form.php?opid=1949030&afsid=1">Your Ad Here</a></div>
+<!-- End: adBrite -->
         </div>
         <div class="grid_18 push_1" >
             <h1 style="font-size:18px">This app wasn't yet implemented in this experiment.</h1>
