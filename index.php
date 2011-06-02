@@ -64,6 +64,7 @@ $apps[3] = Array(
 <div id="externalContainer">
     <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Falexw.me%2Fipad2&amp;layout=box_count&amp;show_faces=false&amp;width=78&amp;action=like&amp;font&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" class="share_icon" allowTransparency="true"></iframe>
     <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alexw.me/ipad2" data-text="iPad2 simulator /w Css3, Jquery and HTML5" data-count="vertical" data-via="altryne">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <g:plusone size="tall"></g:plusone>
     <div id="content_overflow">
     <div id="content" class="hide_spring">
         <div id="window"></div>
@@ -159,7 +160,8 @@ $apps[3] = Array(
     <div id="home"></div>
     <div id="sleep"></div>
 </div>
-
+        <!-- Place this tag in your head or just before your close body tag -->
+    <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
 <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
        change the UA-XXXXX-X to be your site's ID -->
   <script>

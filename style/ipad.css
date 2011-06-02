@@ -24,12 +24,19 @@ li {
     position:relative;
     
 }
-.share_icon,.twitter-share-button{
+.share_icon,.twitter-share-button,#___plusone_0{
     border: medium none; overflow: hidden; width: 78px; height: 65px; position: absolute; top: 0pt; right: -106px; margin-top: 0pt;
 }
 .twitter-share-button{
     right:-80px;
     top:72px;
+}
+#___plusone_0{
+	height: 80px !important;
+	width: 50px;
+	display: inline-block;
+	top: 130px;
+	right: -78px;
 }
 #content_overflow{
     width: 885px;
