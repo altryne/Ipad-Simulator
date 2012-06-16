@@ -10,7 +10,7 @@ $apps[0] = Array(
 );
 $apps[1] = Array(
     'Maps',
-    'iMovie',
+    Array('WTF',Array('Messages','Weather','Clock','Maps','Notes','Timezones')),
     'camera',
     'Photo Booth',
     'facetime',
@@ -18,13 +18,12 @@ $apps[1] = Array(
     'Notes',
     'Photos',
     'Timezones',
-    'Weather'
+    'Weather',
 );
 $apps[2] = Array(
     'Mail',
     'Stocks',
     'Maps',
-    'Messages',
     'Notes',
     'Photos',
     'iMovie',
@@ -33,7 +32,6 @@ $apps[3] = Array(
     'Mail',
     'Stocks',
     'Maps',
-    'Messages',
     'Notes',
     'Photos',
     'iMovie',
@@ -76,7 +74,6 @@ $apps[3] = Array(
             <span class="percentage">99%</span>
         </div>
         <div id="general_wrap">
-
             <div id="drag" style="left:0">
                 <div id="page0" class="page">
                     <form>
@@ -100,18 +97,38 @@ $apps[3] = Array(
                 if($k != 0 && count($v)){
                     echo '<ul id="page'.$k.'" class="apps page">'."\n";
                         foreach($v as $kk=>$vv){
+                        if(!is_array($vv)){
                         echo '<li id="'.str_replace(' ','',strtolower($vv)).'" class="app">
                                 <div class="delete">x</div>
-                                <div class="app_logo" style="background-image:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
+                                <div class="app_logo" style="background:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
-                            </li>'."\n";
+                            </li>';
+                        }else{
+                           echo '<li id="'.$vv[0].'" class="app folder">
+                           <div class="app_logo"">
+                           <ul class="ui-sortable">';
+                           foreach($vv[1] as $kkk=>$vvv){
+                                echo '<li data-id="'.$vvv.'" class="app">
+                                      <div class="delete">x</div>
+                                      <div class="app_logo" style="background:url(\'apps/'.strtolower($vvv).'.jpg\')"></div>
+                                      <span>'.$vvv.'</span>
+                                     </li>';
+                            }
+                           echo '</ul>
+                           </div>
+                           <span>'.$vv[0].'</span>
+                           </li>';
                         }
-                    echo '</ul>'."\n";
+                        }
+                    echo '</ul>';
                     }
                 }
                 ?>
 
             </div>
+        </div>
+        <div id="folder_cont">
+
         </div>
         <ul id="pages">
             <li class="first">
@@ -128,12 +145,25 @@ $apps[3] = Array(
         <ul id="dock" class="apps">
             <?php
                 foreach($apps[0] as $kk=>$vv){
+                    if(!is_array($vv)){
                         echo '<li id="'.str_replace(' ','',strtolower($vv)).'" class="app">
                                 <div class="delete">x</div>
-                                <div class="app_logo" style="background-image:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
+                                <div class="app_logo" style="background:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
-                            </li>'."\n";
+                            </li>';
                         }
+                    else{
+                        echo '<li id="'.str_replace(' ','',strtolower($vv[0])).'" class="app folder">';
+                        foreach($vv[1] as $kkk=>$vvv){
+                            echo '<li data-id="'.$vvv.'" class="app">
+                                <div class="delete">x</div>
+                                <div class="app_logo" style="background:url(\'apps/'.str_replace(' ','',strtolower($vvv)).'.jpg\')"></div>
+                                <span>'.$vvv.'</span>
+                            </li>';
+                        }
+                        echo '</li>';
+                    }
+                }
             ?>
         </ul>
 
