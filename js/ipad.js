@@ -48,7 +48,7 @@ $('.page.apps>li,#dock li').live('mousedown mouseup', function(event) {
         $(this).addClass('mousedown');
         if (!$('#drag').is('.ui-draggable-dragging') && !$('body').is('.editMode')) {
             can_run_apps = true;
-            intervall = setTimeout("edit_mode()", '2000');
+            intervall = setTimeout(edit_mode, '1000');
         }else if($(this).hasClass('folder') && $('body').is('.editMode')){
             openFolder($(this).attr('id'));
             return false;
@@ -106,7 +106,7 @@ $('#slider').live('mousedown mouseup', function(event) {
 });
 
 $('#home').live('click',function(e){
-    b = setTimeout('homeBtnClick()',doubleclickthreshhold);
+    b = setTimeout(homeBtnClick,doubleclickthreshhold);
 });
 $('#home').live('dblclick',homeBtnDClick);
 
@@ -134,8 +134,8 @@ $(document).ready(function(){
     _page = 1;
     _pages = $('ul.page').length;
     reflectDock();
-
-            _page=1; unlockSpring(); slideToPage(1); edit_mode();//can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
+//    unlockSpring();
+//    _page=1; unlockSpring(); slideToPage(1); edit_mode();//can_run_apps = true; launchApp('notes'); //temporary - todo:remove this
 
 //            create elements in quick search
     $('.page.apps li,#dock li').each(function(){
@@ -154,7 +154,9 @@ $(document).ready(function(){
     $('#search').liveUpdate($('#search_result'));
     $('#search_result').draggable({axis:'y',distance:20,revert:'invalid'});
 
-    tick = setInterval('updateClock()', 1000 );
+    tick = setInterval(function(){
+        updateClock();
+    }, 1000 );
     $('#slider').draggable({axis:'x',containment: 'parent',revert:'invalid'})
 
     $('#drop').droppable({

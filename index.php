@@ -10,14 +10,14 @@ $apps[0] = Array(
 );
 $apps[1] = Array(
     'Maps',
-    Array('WTF',Array('Messages','Weather','Clock','Maps','Notes','Timezones')),
+    Array('Folder',Array('Messages','Weather','Clock','Maps','Notes','Timezones')),
     'camera',
     'Photo Booth',
     'facetime',
     'Game Center',
     'Notes',
     'Photos',
-    'Timezones',
+    'HN reader',
     'Weather',
 );
 $apps[2] = Array(
@@ -51,12 +51,7 @@ $apps[3] = Array(
     <link rel="icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" href="style/ipad.css" type="text/css" media="screen"/>
     <link rel="image_src" href="http://alexw.me/ipad2/apps/facebook.jpg" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
-    <script type="text/javascript" src="js/jquery-ui-1.8.1.custom.min.js"></script>
-    <script type="text/javascript" src="js/plugins.js"></script>
-    <script type="text/javascript" src="js/jquery.ui.ipad.js"></script>
-    <script type="text/javascript" src="js/ipad.js"></script>
+
 </head>
 <body id="ipad">
 <div id="externalContainer">
@@ -191,6 +186,13 @@ $apps[3] = Array(
     <div id="home"></div>
     <div id="sleep"></div>
 </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.1.custom.min.js"></script>
+    <script type="text/javascript" src="js/plugins-ck.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.ipad.js"></script>
+    <script type="text/javascript" src="js/ipad-ck.js"></script>
         <!-- Place this tag in your head or just before your close body tag -->
     <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
 <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
