@@ -24,17 +24,9 @@
     <body>
     <div id="content" class="container_24">
         <div class="grid_4 ">
-            <script type="text/javascript"><!--
-            google_ad_client = "pub-4788291002967314";
-            /* 160x600, created 7/13/10 */
-            google_ad_slot = "5543103889";
-            google_ad_width = 160;
-            google_ad_height = 600;
-            //-->
-            </script>
-            <script type="text/javascript"
-            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-            </script>
+            <div class="ban_right">
+                    <script id="mNCC" language="javascript">  medianet_width='160';  medianet_height= '600';  medianet_crid='721461127';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CUQSB4X7" language="javascript"></script>
+                </div>
         </div>
         <div class="grid_18 push_1" >
             <h1 style="font-size:18px">This app wasn't yet implemented in this experiment.</h1>

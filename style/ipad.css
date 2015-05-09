@@ -30,6 +30,7 @@ li {
 .twitter-share-button{
     right:-80px;
     top:72px;
+	position: absolute !important;
 }
 #content_overflow{
     width: 885px;
@@ -591,4 +592,15 @@ iframe.onFront{
 iframe{
     border:0;
     margin-top:17px;
+}
+
+.ban_left{
+	position: absolute;
+	 left: -295px;
+	 z-index: 500;
+}
+.ban_right{
+	position: absolute;
+	left: -295px;
+	z-index: 500;
 }
