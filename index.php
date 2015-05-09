@@ -60,7 +60,7 @@ $apps[3] = Array(
     
     <g:plusone size="tall" href="http://alexw.me/ipad2"></g:plusone>
 
-    <div class="ban_left">
+    <div class="ban_right">
         <script id="mNCC" language="javascript">  medianet_width='160';  medianet_height= '600';  medianet_crid='109715083';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CUQSB4X7" language="javascript"></script>
     </div>
     <div id="content_overflow">

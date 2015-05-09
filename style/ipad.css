@@ -745,6 +745,6 @@ iframe{
 }
 .ban_right{
 	position: absolute;
-	left: -295px;
+	right: -295px;
 	z-index: 500;
 }
