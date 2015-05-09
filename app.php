@@ -4,8 +4,10 @@
         header('Location: '.$appid.'.html');
     }
     elseif($appid && $appid == 'timezones'){
-        
         header('Location: http://everytimezone.com');
+    }
+    elseif($appid && $appid == 'hnreader'){
+        header('Location: http://cheeaun.github.com/hnmobile/');
     }
     else{
 

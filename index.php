@@ -10,21 +10,20 @@ $apps[0] = Array(
 );
 $apps[1] = Array(
     'Maps',
-    'iMovie',
+    Array('Folder',Array('Messages','Weather','Clock','Maps','Notes','Timezones')),
     'camera',
     'Photo Booth',
     'facetime',
     'Game Center',
     'Notes',
     'Photos',
-    'Timezones',
-    'Weather'
+    'HN reader',
+    'Weather',
 );
 $apps[2] = Array(
     'Mail',
     'Stocks',
     'Maps',
-    'Messages',
     'Notes',
     'Photos',
     'iMovie',
@@ -33,7 +32,6 @@ $apps[3] = Array(
     'Mail',
     'Stocks',
     'Maps',
-    'Messages',
     'Notes',
     'Photos',
     'iMovie',
@@ -53,17 +51,14 @@ $apps[3] = Array(
     <link rel="icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" href="style/ipad.css" type="text/css" media="screen"/>
     <link rel="image_src" href="http://alexw.me/ipad2/apps/facebook.jpg" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
-    <script type="text/javascript" src="js/jquery-ui-1.8.1.custom.min.js"></script>
-    <script type="text/javascript" src="js/plugins.js"></script>
-    <script type="text/javascript" src="js/jquery.ui.ipad.js"></script>
-    <script type="text/javascript" src="js/ipad.js"></script>
+
 </head>
 <body id="ipad">
 <div id="externalContainer">
     <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Falexw.me%2Fipad2&amp;layout=box_count&amp;show_faces=false&amp;width=78&amp;action=like&amp;font&amp;colorscheme=light&amp;height=65" scrolling="no" frameborder="0" class="share_icon" allowTransparency="true"></iframe>
     <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://alexw.me/ipad2" data-text="iPad2 simulator /w Css3, Jquery and HTML5" data-count="vertical" data-via="altryne">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    
+    <g:plusone size="tall" href="http://alexw.me/ipad2"></g:plusone>
 
     <div class="ban_left">
         <script id="mNCC" language="javascript">  medianet_width='160';  medianet_height= '600';  medianet_crid='109715083';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CUQSB4X7" language="javascript"></script>
@@ -78,7 +73,6 @@ $apps[3] = Array(
             <span class="percentage">99%</span>
         </div>
         <div id="general_wrap">
-
             <div id="drag" style="left:0">
                 <div id="page0" class="page">
                     <form>
@@ -102,18 +96,38 @@ $apps[3] = Array(
                 if($k != 0 && count($v)){
                     echo '<ul id="page'.$k.'" class="apps page">'."\n";
                         foreach($v as $kk=>$vv){
+                        if(!is_array($vv)){
                         echo '<li id="'.str_replace(' ','',strtolower($vv)).'" class="app">
                                 <div class="delete">x</div>
-                                <div class="app_logo" style="background-image:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
+                                <div class="app_logo" style="background:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
-                            </li>'."\n";
+                            </li>';
+                        }else{
+                           echo '<li id="'.$vv[0].'" class="app folder">
+                           <div class="app_logo"">
+                           <ul class="ui-sortable">';
+                           foreach($vv[1] as $kkk=>$vvv){
+                                echo '<li data-id="'.$vvv.'" class="app">
+                                      <div class="delete">x</div>
+                                      <div class="app_logo" style="background:url(\'apps/'.strtolower($vvv).'.jpg\')"></div>
+                                      <span>'.$vvv.'</span>
+                                     </li>';
+                            }
+                           echo '</ul>
+                           </div>
+                           <span>'.$vv[0].'</span>
+                           </li>';
                         }
-                    echo '</ul>'."\n";
+                        }
+                    echo '</ul>';
                     }
                 }
                 ?>
 
             </div>
+        </div>
+        <div id="folder_cont">
+
         </div>
         <ul id="pages">
             <li class="first">
@@ -130,12 +144,25 @@ $apps[3] = Array(
         <ul id="dock" class="apps">
             <?php
                 foreach($apps[0] as $kk=>$vv){
+                    if(!is_array($vv)){
                         echo '<li id="'.str_replace(' ','',strtolower($vv)).'" class="app">
                                 <div class="delete">x</div>
-                                <div class="app_logo" style="background-image:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
+                                <div class="app_logo" style="background:url(\'apps/'.str_replace(' ','',strtolower($vv)).'.jpg\')"></div>
                                 <span>'.$vv.'</span>
-                            </li>'."\n";
+                            </li>';
                         }
+                    else{
+                        echo '<li id="'.str_replace(' ','',strtolower($vv[0])).'" class="app folder">';
+                        foreach($vv[1] as $kkk=>$vvv){
+                            echo '<li data-id="'.$vvv.'" class="app">
+                                <div class="delete">x</div>
+                                <div class="app_logo" style="background:url(\'apps/'.str_replace(' ','',strtolower($vvv)).'.jpg\')"></div>
+                                <span>'.$vvv.'</span>
+                            </li>';
+                        }
+                        echo '</li>';
+                    }
+                }
             ?>
         </ul>
 
@@ -164,6 +191,14 @@ $apps[3] = Array(
     <div id="sleep"></div>
 </div>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script>!window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.4.min.js"%3E%3C/script%3E'))</script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.1.custom.min.js"></script>
+    <script type="text/javascript" src="js/plugins-ck.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.ipad.js"></script>
+    <script type="text/javascript" src="js/ipad-ck.js"></script>
+        <!-- Place this tag in your head or just before your close body tag -->
+    <script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
 <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
        change the UA-XXXXX-X to be your site's ID -->
   <script>

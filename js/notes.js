@@ -21,7 +21,7 @@ var fns  = {} ,
         ,{
             'title':'Working apps',
             'date':"1295308434988",
-            'text': "working apps :\n\n - safari \n\n - google maps \n\n - everytimezone \n\n - notes"
+            'text': "working apps :\n\n - safari \n\n - google maps \n\n - everytimezone \n\n - notes \n\n - hnreader"
         }
     ]
 };
